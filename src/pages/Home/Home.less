@@ -1,0 +1,87 @@
+@import "../../assets/flex.less";
+
+.home-header {
+  width: 1080px;
+  margin: 50px auto;
+  &__box {
+    .flex-display(flex);
+    padding: 0 50px;
+    &_subtitle {
+      width: 500px;
+      font-size: 28px;
+      font-weight: 300;
+      line-height: 34px;
+      margin-top: 150px;
+      margin-right: 100px;
+      span {
+        font-family: "Comfortaa";
+        font-weight: 700;
+        background: linear-gradient(
+          270deg,
+          rgba(255, 51, 133, 0.53) -20.67%,
+          rgba(87, 28, 211, 0.78) 82.4%,
+          #00acac 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+    &_image {
+      position: relative;
+      z-index: -1;
+      div:first-child {
+        position: absolute;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        background: #ff66a3;
+        transform: translate(-60px, 220px);
+      }
+      div:nth-child(2) {
+        position: absolute;
+        width: 233px;
+        height: 233px;
+        border-radius: 14px;
+        background: #9a77e5;
+        transform: rotate(32.61deg) translate(80px, 0);
+      }
+      div:nth-child(3) {
+        position: absolute;
+        transform: translate(240px, 210px);
+      }
+      div:nth-child(4) {
+        position: absolute;
+        border-radius: 50%;
+        width: 221px;
+        height: 221px;
+        background: #ff66a3;
+        transform: translate(0, 300px);
+      }
+      div:nth-child(5) {
+        position: absolute;
+        border-radius: 14px;
+        width: 113px;
+        height: 113px;
+        background: #9a77e5;
+        transform: rotate(-6.24deg) translate(200px, 460px);
+      }
+    }
+  }
+  &__start-button {
+   text-align: center;
+   margin-top: 120px;
+   padding: 0 20px;
+    button {
+    color: white;
+    padding: 15px 38px;
+    background: #784ADC;
+    outline: 0;
+    border: 0;
+    border-radius: 10px;
+    font-family: 'Source Sans Pro';
+    font-weight: 600;
+    font-size: 18px;
+    cursor: pointer;
+  }
+}
+}

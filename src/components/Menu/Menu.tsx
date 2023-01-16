@@ -11,13 +11,16 @@ export const Menu: React.FC = () => {
     console.log(isLogin)
     const [popup, setPopup] = useState({register: false, auth: false})
     const showRegistrationHandle = () => {
+        document.title = `Creatiqa Регистрация`
         setPopup({register: true, auth: false})
     }
     const closeHandle = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
+        document.title = `Creatiqa`
         setPopup({register: false, auth: false})
     }
     const showLoginHandle = () => {
+        document.title = `Creatiqa Вход`
         setPopup({register: false, auth: true})
     }
     return(
