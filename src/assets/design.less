@@ -1,0 +1,23 @@
+.animation(@name, @time, @time-fun) {
+  animation: @name @time @time-fun;
+  -webkit-animation: @name @time @time-fun;
+}
+
+.box-shadow(@x, @y, @blur, @spread: 0, @alpha) {
+  -webkit-box-shadow: @x @y @blur @spread rgba(0, 0, 0, @alpha);
+  -moz-box-shadow: @x @y @blur @spread rgba(0, 0, 0, @alpha);
+  box-shadow: @x @y @blur @spread rgba(0, 0, 0, @alpha);
+}
+
+.border-radius(@radius) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+.linear-gradient(@deg, @start, @end){
+  background-image: -webkit-linear-gradient(@deg, @start, @end);
+  background-image:    -moz-linear-gradient(@deg, @start, @end);
+  background-image:      -o-linear-gradient(@deg, @start, @end);
+  background-image:     -ms-linear-gradient(@deg, @start, @end);
+}
