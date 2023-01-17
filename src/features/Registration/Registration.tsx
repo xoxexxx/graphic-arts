@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 import {Verify} from './Verify'
 export const Registration: React.FC<{popup: IPopup | any, handlers: any}> = ({popup, handlers}) => {
     const dispatch = useDispatch()
-    const [verify, setVerify] = useState(true)
+    const [verify, setVerify] = useState(false)
     const [reg, setReg] = React.useState<Partial<IUserData>>({
         email: 'fupi018@gmail.com',
         password: null,
