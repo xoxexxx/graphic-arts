@@ -1,15 +1,30 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import logo from '../../assets/images/Logo.svg';
 import close from '../../assets/images/close.svg'
 import './Menu.less'
 import { Navigation } from "./Navigation";
+import {Registration} from '../../features/Registration/Registration'
+import {Auth} from '../../features/Auth/Auth'
+import axios from "axios";
+
+import { IPopup } from "./types";
+
+
 export const Menu: React.FC = () => {
     const dispatch = useDispatch()
     const isLogin = useSelector((state: boolean | any) => state.authReducer.isLogin)
-    console.log(isLogin)
-    const [popup, setPopup] = useState({register: false, auth: false})
+
+    const [reg, setReg] = useState<any>({
+        email: null,
+        password: null,
+        password2: null,
+        phone: '+799999999',
+        first_name: null
+      })
+    const [popup, setPopup] = useState<IPopup>({register: false, auth: false})
+
     const showRegistrationHandle = () => {
         document.title = `Creatiqa Регистрация`
         setPopup({register: true, auth: false})
@@ -23,6 +38,7 @@ export const Menu: React.FC = () => {
         document.title = `Creatiqa Вход`
         setPopup({register: false, auth: true})
     }
+    
     return(
         <div className="menu">
             <div className="menu__box">
@@ -39,45 +55,8 @@ export const Menu: React.FC = () => {
             </ul>}
             </div>
             <div className={`${popup.register && 'popup' || popup.auth && 'popup'}`}>
-                {popup.register &&
-                 <div className="popup__registration">
-                 <form action="registration" className="popup__registration_form">
-                     <label htmlFor="title" className="title">Регистрация</label>
-                     <button onClick={closeHandle} className="x"><img src={`${close}`} alt="login-creatiqa" /></button>
-                     <fieldset>
-                         <label htmlFor="name">Имя 
-                         <input type="text" placeholder="Введите ваше имя" />
-                         </label>
-                         <label htmlFor="email">E-mail 
-                         <input type="email" placeholder="Введите адрес электронной почты" />
-                         </label>
-                         <label htmlFor="password">Пароль
-                         <input type="password" placeholder="Придумайте пароль" />
-                         </label>
-                         <p className="license">Продолжая, вы соглашаетесь с <a href="#">Условиями использования</a> и <a href="#">Политикой конфиденциальности.</a></p>
-                         <button className="popup__registration_submit">Зарегистрироваться</button>
-                         <p className="link-login">У вас есть аккаунт? <Link onClick={showLoginHandle} to='/'>Войти</Link></p>
-                     </fieldset>
-                 </form>
-             </div>
-                }
-               {popup.auth &&   
-               <div className="popup__authorization">
-                 <form action="authorization" className="popup__authorization_form">
-                     <label htmlFor="title" className="title">Вход</label>
-                     <button onClick={closeHandle} className="x2"><img src={`${close}`} alt="login-creatiqa" /></button>
-                     <fieldset>
-                         <label htmlFor="email">E-mail 
-                         <input type="email" placeholder="Введите адрес электронной почты" />
-                         </label>
-                         <label htmlFor="password">Пароль
-                         <input type="password" placeholder="Придумайте пароль" />
-                         </label>
-                         <button className="popup__authorization_submit">Войти</button>
-                         <p className="link-login">Нет аккаунт? <Link onClick={showRegistrationHandle} to='/'>Зарегистрироваться</Link></p>
-                     </fieldset>
-                 </form>
-             </div>}
+                <Registration popup={[popup, setPopup]}  handlers={[closeHandle,showLoginHandle]} />
+                <Auth popup={[popup, setPopup]} handlers={[closeHandle,showRegistrationHandle]} />
             </div>
         </div>
     )
