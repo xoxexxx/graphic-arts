@@ -81,6 +81,33 @@ a {
   .align-items(center);
   &__registration,
   &__authorization {
+    overflow-y: scroll;
+    &_verify {
+      .x {
+        transform: translate(430px, -40px) !important;
+      }
+      form {
+        width: 312px;
+        margin: 50px auto;
+        label {
+          font-size: 24px;
+          input {
+            margin: 0;
+          }
+        }
+        button {
+          padding: 15px 36px;
+          font-size: 18px;
+          color: white;
+          outline: 0;
+          border: none;
+          border-radius: 10px;
+          cursor: pointer;
+          background-color: #784adc;
+          margin-top: 30px;
+        }
+      }
+    }
     border-radius: 10px;
     &_form {
       width: 312px;
@@ -102,7 +129,7 @@ a {
           font-size: 16px;
           font-family: "Source Sans Pro";
           font-weight: 400;
-          margin-top: 12px;
+          margin-top: 5px;
           outline: 0;
           border: 1px solid #d9d9d9;
           border-radius: 10px;
