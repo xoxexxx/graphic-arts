@@ -14,3 +14,17 @@
   -moz-border-radius: @radius;
   border-radius: @radius;
 }
+
+.linear-gradient(@deg, @start, @end){
+  background-image: -webkit-linear-gradient(@deg, @start, @end);
+  background-image:    -moz-linear-gradient(@deg, @start, @end);
+  background-image:      -o-linear-gradient(@deg, @start, @end);
+  background-image:     -ms-linear-gradient(@deg, @start, @end);
+}
+
+.transition(@arguments) {
+  -webkit-transition: @arguments;
+  -moz-transition: @arguments;
+  -o-transition: @arguments;
+  transition: @arguments;
+}
