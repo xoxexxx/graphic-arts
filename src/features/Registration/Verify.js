@@ -3,20 +3,25 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import closeSVG from '../../assets/images/close.svg'
 
-export const Verify = ({email, close}) => {
+export const Verify = ({email, login, set}) => {
     const dispatch = useDispatch()
-    const [value, setValue] = useState('12345')
-    
+
+    const [value, setValue] = useState('')
+
+
     const submit = (e) => {
         e.preventDefault()
         axios({
             method: 'PUT',
             url: `http://217.25.88.184:8080/registr/verify/${email}`,
-            'Content-Type': 'application/json',
-            data: '12345'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            data: JSON.parse(value)
            
         }).then((res) => {
-            
+            set(prev => !prev)
+            login()
         }).catch(() => dispatch({type: "FETCH_AUTH_ERROR"}))
     }
     return(
@@ -25,7 +30,7 @@ export const Verify = ({email, close}) => {
             <form action="verify">
                 <fieldset>
                     <label htmlFor="verify">Код подтверждения
-                        <input placeholder='Код подтверждения' value={value} onChange={e => setValue(e.target.value)} type="number" />
+                        <input id='value' placeholder='Код подтверждения' value={value} onChange={e => setValue(e.target.value)} type="number" />
                     </label>
                     <button onClick={submit}>Отправить</button>
                 </fieldset>

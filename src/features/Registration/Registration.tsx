@@ -41,7 +41,7 @@ export const Registration: React.FC<{popup: IPopup | any, handlers: any}> = ({po
         {popup[0].register &&
                  <div className="popup__registration">
                     {verify 
-                    ? <Verify email={email} close={close} />
+                    ? <Verify email={email} login={showLogin} set={setVerify}  />
                     : <form action="registration" className="popup__registration_form">
                     <label htmlFor="title" className="title">Регистрация</label>
                     <button onClick={close} className="x"><img src={`${closeSVG}`} alt="login-creatiqa" /></button>
