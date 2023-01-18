@@ -3,7 +3,7 @@ module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
   setupFilesAfterEnv: ["@testing-library/jest-dom/extend-expect"],
-  moduleNameMapper: {
-    '^.+.(svg)$': 'jest-transform-stub',
-  }
+  // moduleNameMapper: {
+  //   '^.+.(svg)$': 'jest-transform-stub',
+  // }
 };

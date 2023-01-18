@@ -46,7 +46,7 @@ export const Menu: React.FC = () => {
                 <Navigation />
             {isLogin ? 
             <ul className="menu__box_items">
-                <li className="item"> <NavLink to='/'>Выход</NavLink></li>
+                {/* <li className="item"> <NavLink to='/'>Выход</NavLink></li> */}
             </ul>
             : 
             <ul className="menu__box_items">  

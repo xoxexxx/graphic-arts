@@ -1,7 +1,7 @@
 const initialState = {
   isLoading: false,
   hasError: false,
-  isLogin: false,
+  isLogin: true,
 };
 
 export const authReducer = (state = initialState, action) => {
@@ -11,7 +11,7 @@ export const authReducer = (state = initialState, action) => {
         ...state,
         isLoading: true,
         hasError: false,
-        isLogin: false,
+        isLogin: true,
       };
     }
     case "FETCH_AUTH_SUCCESS": {
@@ -27,7 +27,7 @@ export const authReducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
         hasError: true,
-        isLogin: false,
+        isLogin: true,
       };
     }
     case "LOGOUT_USER": {
