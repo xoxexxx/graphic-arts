@@ -18,6 +18,10 @@ export const Auth: React.FC<{popup: IPopup | any, handlers: any }> = ({popup, ha
 
         
         axios({
+//             method: 'POST',
+//             url: 'http://217.25.88.184:8080/authusers/',
+//             data: usr,
+
             method: 'PUT',
             url: 'http://217.25.88.184:8080/api-authlogin/?next=/auth',
             data: usr,
@@ -26,6 +30,7 @@ export const Auth: React.FC<{popup: IPopup | any, handlers: any }> = ({popup, ha
             headers: {
               'Content-Type': 'application/json',
             }
+
         }).then(res => {
             dispatch({type: "FETCH_AUTH_REQUEST"})
             

@@ -14,11 +14,8 @@ export const Verify = ({email, login, set}) => {
         axios({
             method: 'PUT',
             url: `http://217.25.88.184:8080/registr/verify/${email}`,
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            data: JSON.parse(value)
-           
+            'Content-Type': 'application/json',
+            data: "12345" 
         }).then((res) => {
             set(prev => !prev)
             login()
