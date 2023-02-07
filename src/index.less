@@ -9,3 +9,20 @@ body {
     background:  white; 
 
 }
+
+.drop__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: translate(92%, 40px);
+    cursor: pointer;
+    display: none;
+    @media (max-width: 1140px) {
+        display: block;
+    }
+    @media (max-width: 420px) {
+        transform: translate(76%, 40px);
+    }
+}

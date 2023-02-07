@@ -3,9 +3,11 @@ import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
 import { authReducer } from "./reducers/auth";
 import { userDataReducer } from "./reducers/data-user";
+import { dropReducer } from "./reducers/drop";
 const rootReducer = combineReducers({
   authReducer: authReducer,
-  userDataReducer: userDataReducer
+  userDataReducer: userDataReducer,
+  dropReducer: dropReducer,
 });
 
 const state = {};

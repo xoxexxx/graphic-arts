@@ -18,7 +18,7 @@ export const Auth: React.FC<{popup: IPopup | any, handlers: any }> = ({popup, ha
         axios({
             method: 'POST',
             url: 'http://217.25.88.184:8080/authusers/',
-            data: usr
+            data: usr,
         }).then(res => {
             dispatch({type: "FETCH_AUTH_REQUEST"})
             
