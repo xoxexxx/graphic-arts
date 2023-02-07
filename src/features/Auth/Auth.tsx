@@ -6,7 +6,7 @@ import closeSVG from '../../assets/images/close.svg'
 import { IPopup } from '../../components/Menu/types';
 export const Auth: React.FC<{popup: IPopup | any, handlers: any }> = ({popup, handlers}) => {
     const dispatch = useDispatch()
-    const [usr, setUsr] = useState({
+    const [usr, setUsr] = useState<any>({
         email: "",
         password: ""
       })
@@ -15,10 +15,22 @@ export const Auth: React.FC<{popup: IPopup | any, handlers: any }> = ({popup, ha
 
       const submit = (e:  React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
+
+        
         axios({
-            method: 'POST',
-            url: 'http://217.25.88.184:8080/authusers/',
+//             method: 'POST',
+//             url: 'http://217.25.88.184:8080/authusers/',
+//             data: usr,
+
+            method: 'PUT',
+            url: 'http://217.25.88.184:8080/api-authlogin/?next=/auth',
             data: usr,
+            xsrfCookieName: "XSRF-TOKEN",
+            xsrfHeaderName: "X-CSRFToken",
+            headers: {
+              'Content-Type': 'application/json',
+            }
+
         }).then(res => {
             dispatch({type: "FETCH_AUTH_REQUEST"})
             
@@ -30,7 +42,9 @@ export const Auth: React.FC<{popup: IPopup | any, handlers: any }> = ({popup, ha
         <>
          {popup[0].auth &&   
                <div className="popup__authorization">
-                 <form action="authorization" className="popup__authorization_form">
+                
+                 <form action="http://217.25.88.184:8080/api-authlogin/?next=/auth" className="popup__authorization_form">
+                <input type="hidden" name='_csrf' value='SKUDASCSRF' />
                      <label htmlFor="title" className="title">Вход</label>
                      <button onClick={close} className="x2"><img src={`${closeSVG}`} alt="login-creatiqa" /></button>
                      <fieldset>

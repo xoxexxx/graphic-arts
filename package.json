@@ -4,7 +4,7 @@
   "description": "Creatiqa - это поставщик программных решений для графического",
   "main": "index.tsx",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "watch": "webpack --mode development --watch",
@@ -26,7 +26,6 @@
     "html-webpack-plugin": "^5.5.0",
     "less-loader": "^11.1.0",
     "mini-css-extract-plugin": "^2.7.2",
-    "node-sass": "^8.0.0",
     "sass-loader": "^13.2.0",
     "style-loader": "^3.3.1",
     "ts-loader": "^9.4.2",
@@ -38,8 +37,11 @@
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "@reduxjs/toolkit": "^1.9.1",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
     "@types/react": "^18.0.26",
     "axios": "^1.2.2",
+    "jest-react": "^0.14.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",

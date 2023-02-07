@@ -48,8 +48,8 @@ export const Menu: React.FC = () => {
                 <Link to='/'><div className="menu__box_logo"><img src={`${logo}`} alt="creatiqa" />CREATIQA</div></Link>
                 <Navigation />
             {isLogin ? 
-            <ul className={`menu__box_items ${!drop && "mob__hidden"} `}>
-                <li className="item"> <NavLink to='/'>Выход</NavLink></li>
+            <ul className="menu__box_items">
+                {/* <li className="item"> <NavLink to='/'>Выход</NavLink></li> */}
             </ul>
             : 
             <ul className={`menu__box_items  ${!drop && "mob__hidden"} `}>  
