@@ -5,6 +5,7 @@ export const Main = () => {
     return(
         <div className='main'>
             <JoinNavigation />
+            <div className='main__box'></div>
         </div>
     )
 }

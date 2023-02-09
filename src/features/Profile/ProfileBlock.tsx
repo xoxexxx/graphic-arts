@@ -10,7 +10,7 @@ export const ProfileBlock = () => {
                 <span>Мой тариф: <a href="#">Премиум</a></span>
                 <div className="profile__box_media_photo">
                     <img src={`${test}`} alt="creatiqa" />
-                    <div className="del">Фото профиля <img src={`${del}`} alt="delete" /></div>
+                    <div className="del"> <span>Фото профиля </span> <img src={`${del}`} alt="delete" /></div>
                     <button>Редактировать</button>
                 </div>
                 

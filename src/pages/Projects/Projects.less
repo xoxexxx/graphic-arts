@@ -1,0 +1,19 @@
+@import '../../assets/flex.less';
+
+.projects {
+    max-width: 1260px;
+    .flex-display(flex);
+    margin: 0 auto;
+    &__box {
+        .flex-display(flex);
+        .justify-content(center);
+        .align-items(center);
+        width: 100%;
+        margin: 0 25px;
+        h1 {
+            text-align: center;
+            color: rgba(0, 0, 0, 0.6);
+            font-weight: 600;
+        }
+    }
+}
