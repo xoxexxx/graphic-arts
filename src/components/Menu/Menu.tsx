@@ -11,7 +11,9 @@ import axios from "axios";
 import {dropReducer} from '../../services/reducers/drop'
 import { IPopup } from "./types";
 import { DropMenu } from "../drop-menu/drop-menu";
-
+import { Profile } from "../../pages/Profile/Profile";
+import { JoinNavigation } from "./JoinNavigation";
+import test from '../../assets/images/test.png'
 
 export const Menu: React.FC = () => {
     const dispatch = useDispatch()
@@ -48,8 +50,11 @@ export const Menu: React.FC = () => {
                 <Link to='/'><div className="menu__box_logo"><img src={`${logo}`} alt="creatiqa" />CREATIQA</div></Link>
                 <Navigation />
             {isLogin ? 
-            <ul className="menu__box_items">
+            <ul className={`menu__box_items-join`}>
                 {/* <li className="item"> <NavLink to='/'>Выход</NavLink></li> */}
+                <button>Создать проект</button>
+               <Link to="/profile"><img width='50' src={`${test}`} alt="photo" /></Link> 
+                
             </ul>
             : 
             <ul className={`menu__box_items  ${!drop && "mob__hidden"} `}>  
@@ -61,6 +66,7 @@ export const Menu: React.FC = () => {
                 <Registration popup={[popup, setPopup]}  handlers={[closeHandle,showLoginHandle]} />
                 <Auth popup={[popup, setPopup]} handlers={[closeHandle,showRegistrationHandle]} />
             </div>
+            
         </div>
     )
 }

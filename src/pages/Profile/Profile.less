@@ -1,0 +1,82 @@
+@import '../../assets/flex.less';
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profile {
+    max-width: 1260px;
+    margin: 0 auto;
+    .flex-display(flex);
+    &__box {
+        width: 600px;
+        margin-left: 20px;
+        padding: 0px 25px;
+        
+        &_media {
+            padding-bottom: 30px;
+            border-bottom: 1px solid #D3D3D4;
+            h2 {
+                display: inline-block;
+                font-size: 24px;
+                font-weight: 700;
+            }
+            span {
+                float: right;
+                margin-top: 25px;
+                color: #4F5052;
+                a {
+                    color: #571CD3;
+                }
+            }
+            &_photo {
+                .flex-display(flex);
+                .justify-content(space-between);
+                .align-items(center);
+                button {
+                    width: 180px;
+                    height: 50px;
+                    outline: 0;
+                    border: none;
+                    background-color: #F2F2F2;
+                    border-radius: 10px;
+                    cursor: pointer;
+                }
+                .del {
+                    img {
+                        transform: translate(30px, 5px);
+                        cursor: pointer;
+                    }
+                }
+            }
+           
+        }
+        &_settings {
+            label {
+                display: block;
+                font-size: 16px;
+                margin: 25px 0 16px 0;
+            } 
+            input {
+                padding: 12px 16px;
+                outline: 0;
+                border: 1px solid #D3D3D4;
+                border-radius: 10px;
+                width: 50%;
+                margin-top: 5px;
+            }
+            button {
+                width: 180px;
+                height: 50px;
+                outline: 0;
+                border: none;
+                background-color: #F2F2F2;
+                border-radius: 10px;
+                cursor: pointer;
+                float: right;
+            }
+     }
+    }
+}

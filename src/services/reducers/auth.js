@@ -1,7 +1,7 @@
 const initialState = {
   isLoading: false,
   hasError: false,
-  isLogin: false,
+  isLogin: true,
 };
 
 export const authReducer = (state = initialState, action) => {
