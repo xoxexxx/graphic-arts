@@ -4,6 +4,11 @@ import { useSelector } from "react-redux";
 export const Home = () => {
   const drop = useSelector((state: any) => state.dropReducer.drop);
 
+  useEffect(() => {
+    document.title = `Creatiqa `
+},[])
+
+
   return (
     <>
       {!drop && (

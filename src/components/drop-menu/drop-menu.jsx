@@ -17,7 +17,7 @@ export const DropMenu = ({onClick}) => {
     <>
       <div className="drop__menu">
         {drop || drop_ ? (
-         drop ?  <img src={`${close}`} alt="creatiqa_menu"  onClick={onClick}/> :  <img src={`${logo}`} alt="creatiqa_menu"  onClick={onClick}/> 
+         drop ?  <img src={`${close}`} alt="creatiqa_menu" className="logo" onClick={onClick}/> :  <img src={`${logo}`} alt="creatiqa_menu" className="logo" onClick={onClick}  /> 
         ) : (
           <img src={`${burger}`} alt="creatiqa_menu" onClick={onClick} />
         )}

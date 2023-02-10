@@ -4,11 +4,13 @@ import { combineReducers } from "redux";
 import { authReducer } from "./reducers/auth";
 import { userDataReducer } from "./reducers/data-user";
 import { dropReducer, profileReducer } from "./reducers/drop";
+import { templateListReducer } from "./reducers/template";
 const rootReducer = combineReducers({
   authReducer: authReducer,
   userDataReducer: userDataReducer,
   dropReducer: dropReducer,
-  profileReducer: profileReducer
+  profileReducer: profileReducer,
+  templateListReducer: templateListReducer,
 });
 
 const state = {};
