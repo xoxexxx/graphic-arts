@@ -17,7 +17,7 @@
       line-height: 34px;
       margin-top: 150px;
       margin-right: 100px;
-      @media (max-width: 1020px) {
+      @media (max-width: 1040px) {
         width: 100%;
         margin: 0 auto;
       }
@@ -37,15 +37,25 @@
     &_image {
       position: relative;
       z-index: -1;
-      transform: scale(0.8);
+      
      @media (max-width: 1040px) {
       position: absolute;
-      left: 150px;
-      top: 620px;
+      left: 260px;
+      top: 520px;
      }
-     @media (max-width: 560px) {
-      left: 60px;
-      top: 680px;
+     @media (max-width: 840px) {
+      left: 160px;
+      top: 580px;
+     }
+     @media (max-width: 660px) {
+      transform: scale(0.8);
+      left: 80px;
+      top: 640px;
+     }
+     @media (max-width: 420px) {
+      transform: scale(0.6);
+      left: 80px;
+      top: 840px;
      }
       div:first-child {
         position: absolute;

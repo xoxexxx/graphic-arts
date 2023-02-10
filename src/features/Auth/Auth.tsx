@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import closeSVG from '../../assets/images/close.svg'
 import { IPopup } from '../../components/Menu/types';
 export const Auth: React.FC<{popup: IPopup | any, handlers: any }> = ({popup, handlers}) => {
@@ -12,29 +12,31 @@ export const Auth: React.FC<{popup: IPopup | any, handlers: any }> = ({popup, ha
       })
     const close = handlers?.[0]
     const showRegistration = handlers?.[1]
-
+    const navigate = useNavigate()
       const submit = (e:  React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
 
-        
-        axios({
-//             method: 'POST',
-//             url: 'http://217.25.88.184:8080/authusers/',
+        dispatch({type: "FETCH_AUTH_REQUEST"})
+        popup[1](false)
+        return navigate('/home')
+//         axios({
+// //             method: 'POST',
+// //             url: 'http://217.25.88.184:8080/authusers/',
+// //             data: usr,
+
+//             method: 'PUT',
+//             url: 'http://217.25.88.184:8080/api-authlogin/?next=/auth',
 //             data: usr,
+//             xsrfCookieName: "XSRF-TOKEN",
+//             xsrfHeaderName: "X-CSRFToken",
+//             headers: {
+//               'Content-Type': 'application/json',
+//             }
 
-            method: 'PUT',
-            url: 'http://217.25.88.184:8080/api-authlogin/?next=/auth',
-            data: usr,
-            xsrfCookieName: "XSRF-TOKEN",
-            xsrfHeaderName: "X-CSRFToken",
-            headers: {
-              'Content-Type': 'application/json',
-            }
-
-        }).then(res => {
-            dispatch({type: "FETCH_AUTH_REQUEST"})
+//         }).then(res => {
+//             dispatch({type: "FETCH_AUTH_REQUEST"})
             
-        }).catch(() => dispatch({type: "FETCH_AUTH_ERROR"}))
+//         }).catch(() => dispatch({type: "FETCH_AUTH_ERROR"}))
       }
 
 

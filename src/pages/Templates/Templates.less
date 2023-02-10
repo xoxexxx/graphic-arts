@@ -1,0 +1,55 @@
+@import '../../assets/flex.less';
+
+.templates {
+    max-width: 1260px;
+    margin: 0 auto;
+    .flex-display(flex);
+    cursor: pointer;
+    a {
+        color: black;
+    }
+    &__list {
+        margin: 0 40px;
+        h2 {
+            margin: 25px 25px 0 25px;
+            padding: 0;
+            font-size: 20px;
+            font-weight: 400;
+        }
+        &_main, &_social {
+            .flex-display(flex);
+            .flex-wrap(wrap);
+            gap: 15px;
+            margin-top: 15px;
+            margin-left: 25px;
+           
+            span {
+                display: block;
+                width: 100px;
+                text-align: center;
+                font-size: 12px;
+                margin-bottom: 10px;
+                margin-top: 10px;
+            }
+        }
+       
+       
+       
+        
+    }
+}
+
+.template {
+    width: 100px;
+    height: 100px;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    .flex-display(flex);
+    .justify-content(center);
+    .align-items(center);
+    cursor: pointer;
+    transition: 0.5s;
+}
+.template:hover {
+    background-color: #784ADC;
+}
