@@ -13,12 +13,13 @@ export const JoinNavigation: React.FC = () => {
     const drop_ = useSelector((state: boolean | any) => state.dropReducer.drop_)
     const drop = useSelector((state: boolean | any) => state.dropReducer.drop)
     const isProfile = useSelector((state: boolean | any) => state.profileReducer.isProfile)
+    const isLogin = useSelector((state: boolean | any) => state.authReducer.isLogin)
     const hidden = () => {
         dispatch({type: "DROP_", payload: false})
     }
-    console.log(isProfile)
+
     return(
-        <div className={`${drop_ && 'd-trsfm' || drop && `block`} menu__join_navigation` }>
+        <div className={`${!isLogin && `hidden` || drop_ && 'd-trsfm' || drop && `block`} menu__join_navigation` }>
             <ul>
                 {drop_ && <img src={`${logo}`} alt="creatiqa_menu" className="logo_" onClick={hidden}  /> }
                 <li onClick={hidden}> <NavLink to="/home"><img src={`${i1}`} alt="creatiqa_menu" /> Главная</NavLink> </li>
