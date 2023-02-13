@@ -45,6 +45,9 @@ a {
     border-bottom: 1px solid #D9D9D9;
   }
 }
+.menu__box_navigation-join {
+  display: none;
+}
 .menu__box_navigation li {
   list-style: none;
   margin-right: 40px;
@@ -54,7 +57,7 @@ a {
 @media (max-width: 1140px) {
   .menu__box_navigation li {
     max-width: 160px;
-    margin-top: 40px;
+    margin-top: 30px;
   }
 }
 .menu__box_navigation li .active {
@@ -248,6 +251,33 @@ a {
   .menu__join_navigation {
     display: none;
   }
+}
+.menu__join_navigation-btns {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.menu__join_navigation-btns button:first-child {
+  margin-top: 120px;
+}
+.menu__join_navigation-btns button:first-child img {
+  transform: translate(-10px, 3px);
+}
+.menu__join_navigation-btns button:last-child {
+  background-color: #784ADC;
+  color: white;
+}
+.menu__join_navigation-btns button {
+  padding: 15px 0;
+  border-radius: 10px;
+  margin-top: 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 .menu__join_navigation ul {
   margin: 0;
@@ -729,6 +759,7 @@ fieldset {
   padding: 0;
   font-size: 20px;
   font-weight: 400;
+  transition: all 0.5s;
 }
 .templates__list_main,
 .main__list_main,
@@ -744,6 +775,7 @@ fieldset {
   gap: 15px;
   margin-top: 15px;
   margin-left: 25px;
+  transition: all 0.5s;
 }
 .templates__list_main span,
 .main__list_main span,
@@ -759,7 +791,7 @@ fieldset {
 .template {
   width: 100px;
   height: 100px;
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
   border-radius: 10px;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -775,10 +807,10 @@ fieldset {
   transition: 0.5s;
 }
 .template:hover {
-  background-color: #784ADC;
+  background-color: #784adc;
 }
 .template.active {
-  background-color: #784ADC;
+  background-color: #784adc;
 }
 
 .projects {
@@ -943,8 +975,8 @@ body {
   bottom: 0;
   cursor: pointer;
   display: none;
-  width: 80px;
-  height: 80px;
+  width: 35px;
+  height: 30px;
 }
 @media (max-width: 1140px) {
   .drop__menu {
@@ -973,7 +1005,7 @@ body {
 }
 .drop_profile_menu {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   position: fixed;
   top: 0;
   left: 0;
@@ -987,7 +1019,7 @@ body {
   z-index: 5;
 }
 .d-trsfm {
-  padding-top: 100px;
+  padding-top: 50px;
   margin-left: 30px;
   display: block !important;
   position: relative;
@@ -998,5 +1030,14 @@ body {
 }
 .d-trsfm li a {
   width: 180px !important;
+}
+.hidden {
+  display: none !important;
+}
+.block {
+  display: block !important;
+}
+.logo_ {
+  cursor: pointer;
 }
 

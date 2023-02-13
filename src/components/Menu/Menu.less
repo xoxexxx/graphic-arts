@@ -22,7 +22,8 @@ a {
     .justify-content(space-between);
     @media (max-width: 1140px) {
       .flex-direction(column);
-      .justify-content(flex-start)
+      .justify-content(flex-start);
+     
     }
     &_navigation {
       display: flex;
@@ -33,13 +34,16 @@ a {
         padding-bottom: 25px;
         border-bottom: 1px solid #D9D9D9;
       }
+      &-join {
+        display: none;
+      }
       li {
         list-style: none;
         margin-right: 40px;
        
         @media (max-width: 1140px) {
           max-width: 160px;
-          margin-top: 40px;
+          margin-top: 30px;
         }
         .active {
           color: #784ADC;
@@ -188,6 +192,28 @@ a {
     .flex-direction(column);
    @media (max-width: 1140px) {
     display: none;
+   }
+   &-btns {
+    .flex-display(flex);
+    .flex-direction(column);
+    button:first-child {
+      margin-top: 120px;
+      img {
+        transform: translate(-10px, 3px);
+      }
+    }
+    button:last-child {
+      background-color: #784ADC;
+      color: white;
+    }
+    button {
+      padding: 15px 0;
+      border-radius: 10px;
+      margin-top: 10px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+    }
    }
     ul {
       margin: 0;

@@ -58,7 +58,8 @@ export const Menu: React.FC = () => {
             </div>}
            {!isProfile && <DropMenu onClick={dropHandler} />} 
             <div className={`menu__box ${isProfile && 'flex'}`}>
-                <Link to='/' className={`${isProfile && 'isProfileLogo'}`}> {!drop_ && <div className="menu__box_logo"><img src={`${logo}`} alt="creatiqa" />CREATIQA</div>}  </Link>
+                {!drop_ && <Link to='/'  className={`${isProfile && 'isProfileLogo'}`}><div className="menu__box_logo"><img src={`${logo}`} alt="creatiqa" />CREATIQA</div>  </Link>}
+                {/* <Link to='/' className={`${isProfile && 'isProfileLogo'}`}> {!drop_ && <div className="menu__box_logo"><img src={`${logo}`} alt="creatiqa" />CREATIQA</div>}  </Link> */}
                 <Navigation />
             {isLogin ? 
             <ul className={`menu__box_items-join ${isProfile && "show"}`}>
