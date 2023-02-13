@@ -1,6 +1,7 @@
 @import "../src/assets/flex.less";
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap");
+@import "node_modules/normalize.less/normalize.less";
 body {
   margin: 0;
   padding: 0;
@@ -18,14 +19,17 @@ body {
   bottom: 0;
   cursor: pointer;
   display: none;
-  width: 80px;
-  height: 80px;
+  width: 35px;
+  height: 30px;
   @media (max-width: 1140px) {
     display: block;
+    
   }
-
+  @media (max-width: 400px) {
+    left: 86%;
+    top: 20px;
+  }
 }
-
 .show {
   display: flex !important;
 }
@@ -44,7 +48,7 @@ body {
 
 .drop_profile_menu {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   position: fixed;
   top: 0;
   left: 0;
@@ -59,7 +63,7 @@ body {
   
 }
 .d-trsfm {
-  padding-top: 100px;
+  padding-top: 50px;
   margin-left: 30px;
   display: block !important;
   position: relative;
@@ -70,4 +74,13 @@ body {
       width: 180px !important;
     }
   }
+}
+.hidden {
+  display: none !important;
+}
+.block {
+  display: block !important;
+}
+.logo_ {
+  cursor: pointer;
 }

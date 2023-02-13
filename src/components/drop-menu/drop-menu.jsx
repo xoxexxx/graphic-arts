@@ -8,14 +8,14 @@ import { useDispatch, useSelector } from "react-redux";
 export const DropMenu = ({onClick}) => {
   const drop = useSelector((state) => state.dropReducer.drop);
   const drop_ = useSelector((state) => state.dropReducer.drop_);
-
+  const isProfile = useSelector((state) => state.profileReducer.isProfile)
   useEffect(() => {
    
   }, [drop_])
 
   return (
     <>
-      <div className="drop__menu">
+      <div className={`${drop_ && isProfile && `hidden`} drop__menu`}>
         {drop || drop_ ? (
          drop ?  <img src={`${close}`} alt="creatiqa_menu" className="logo" onClick={onClick}/> :  <img src={`${logo}`} alt="creatiqa_menu" className="logo" onClick={onClick}  /> 
         ) : (
