@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
-import './Menu.less';
+import React from "react";
+import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+
 import { ProfileNavigation } from "../profile-navigation/ProfileNavigation";
 import { JoinNavigation } from "./JoinNavigation";
+
 export const Navigation: React.FC = () => {
     const dispatch = useDispatch()
     const drop = useSelector((state: any) => state.dropReducer.drop)

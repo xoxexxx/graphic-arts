@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import closeSVG from '../../assets/images/close.svg'
-import { IPopup } from '../../components/Menu/types';
+import { IPopup } from '../Menu/types';
 export const Auth: React.FC<{popup: IPopup | any, handlers: any }> = ({popup, handlers}) => {
     const dispatch = useDispatch()
     const [usr, setUsr] = useState<any>({

@@ -1,8 +1,8 @@
 @import "../../assets/flex.less";
-
+@import "../../assets/design.less";
 .templates,
 .main {
-  max-width: 1260px;
+  max-width: 100%;
   margin: 0 auto;
   .flex-display(flex);
   a {
@@ -15,7 +15,7 @@
       padding: 0;
       font-size: 20px;
       font-weight: 400;
-      transition: all 0.5s;
+      .transition(all 0.5s);
     }
     &_main,
     &_social {
@@ -24,7 +24,7 @@
       gap: 15px;
       margin-top: 15px;
       margin-left: 25px;
-      transition: all 0.5s;
+      .transition(all 0.5s);
       span {
         display: block;
         width: 100px;
@@ -46,7 +46,7 @@
   .justify-content(center);
   .align-items(center);
   cursor: pointer;
-  transition: 0.5s;
+  .transition(0.5s);
 }
 .template:hover {
   background-color: #784adc;

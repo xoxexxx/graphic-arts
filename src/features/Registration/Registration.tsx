@@ -1,8 +1,8 @@
 import React, { SetStateAction, useState } from 'react';
 import closeSVG from '../../assets/images/close.svg'
 import { Link } from 'react-router-dom';
-import {IPopup }from '../../components/Menu/types'
-import {IUserData }from '../../components/Menu/types'
+import {IPopup }from '../Menu/types'
+import {IUserData }from '../Menu/types'
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import {Verify} from './Verify'

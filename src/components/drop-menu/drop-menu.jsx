@@ -1,17 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
+
 import burger from "../../assets/images/burger.svg";
 import close from "../../assets/images/burger-close.svg";
 import logo from "../../assets/images/Web-logo.svg";
-import { useDispatch, useSelector } from "react-redux";
-
 
 export const DropMenu = ({onClick}) => {
   const drop = useSelector((state) => state.dropReducer.drop);
   const drop_ = useSelector((state) => state.dropReducer.drop_);
   const isProfile = useSelector((state) => state.profileReducer.isProfile)
-  useEffect(() => {
-   
-  }, [drop_])
+  
 
   return (
     <>

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "./Home.less";
 import { useSelector } from "react-redux";
+import {TemplatesHover} from '../../components/templates-hover/TempHover'
 export const Home = () => {
   const drop = useSelector((state: any) => state.dropReducer.drop);
 
@@ -13,6 +14,7 @@ export const Home = () => {
     <>
       {!drop && (
         <div className="home-header">
+          <TemplatesHover />
           <div className="home-header__box">
             <div className="home-header__box_subtitle">
               <p>
