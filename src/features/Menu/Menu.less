@@ -1,4 +1,5 @@
 @import "../../assets/flex.less";
+@import "../../assets/design.less";
 ul {
   margin: 0;
 }
@@ -15,7 +16,7 @@ a {
 
 .menu {
   &__box {
-    max-width: 1180px;
+    // max-width: 1180px;
     margin: 20px auto;
     padding: 0 40px;
     .flex-display(flex);
@@ -103,7 +104,7 @@ a {
       }
       @media (max-width: 1140px) {
         .justify-content(flex-start);
-        transform: scale(0.9) translate(-50px, 0);
+        .transform(scale(0.9) translate(-50px, 0));
       }
       @media (max-width: 600px) {
         display: none;
@@ -162,7 +163,7 @@ a {
       }
       .item_registration {
         background-color: #f2f2f2;
-        transition: 0.5s;
+        .transition(0.5s);
         padding: 15.5px 45.5px;
         cursor: pointer;
         border-radius: 10px;
@@ -199,7 +200,7 @@ a {
     button:first-child {
       margin-top: 120px;
       img {
-        transform: translate(-10px, 3px);
+        .transform(translate(-10px, 3px));
       }
     }
     button:last-child {
@@ -260,7 +261,7 @@ a {
     max-height: 90%;
     &_verify {
       .x {
-        transform: translate(430px, -40px) !important;
+        .transform(translate(430px, -40px)) !important;
       }
       form {
         width: 312px;
@@ -325,7 +326,7 @@ a {
       border: none;
       background-color: transparent;
       cursor: pointer;
-      transform: translate(220px, 10px);
+      .transform(translate(220px, 10px));
     }
     .x2 {
       position: absolute;
@@ -333,7 +334,7 @@ a {
       border: none;
       background-color: transparent;
       cursor: pointer;
-      transform: translate(300px, 10px);
+      .transform(translate(300px, 10px));
     }
     .title {
       display: inline-block;
@@ -359,6 +360,57 @@ a {
     .link-login {
       font-size: 12px;
       margin: 15px 0 26px 0;
+    }
+  }
+}
+
+
+
+.e-menu {
+  .flex-display(flex);
+  .justify-content(space-between);
+  ul {
+    .flex-display(flex);
+    .align-items(center);
+    margin: 0;
+    padding: 0;
+    li {
+      .flex-display(flex);
+      .justify-content(center);
+      .align-items(center);
+      list-style: none;
+      cursor: pointer;
+    }
+  }
+  &__box-left {
+    .flex-display(flex);
+    .align-items(center);
+    ul {
+      li {
+        margin: 40px 0 40px 40px;
+        padding: 0;
+        a {
+          color: black;
+        }
+      }
+    }
+  }
+  &__box-right {
+    .flex-display(flex);
+    .align-items(center);
+    ul {
+      li {
+        margin: 0 5px;
+        padding: 15px 24px;
+        .border-radius(10px);
+      }
+      .upload-btn {
+        color: white;
+        background-color: #784ADC;
+      }
+      li:last-child {
+        margin: 0;
+      }
     }
   }
 }

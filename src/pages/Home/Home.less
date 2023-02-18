@@ -1,9 +1,8 @@
 @import "../../assets/flex.less";
-
+@import "../../assets/design.less";
 .home-header {
   max-width: 1080px;
   margin: 50px auto;
-  
   &__box {
     .flex-display(flex);
     padding: 0 50px;
@@ -48,12 +47,12 @@
       top: 580px;
      }
      @media (max-width: 660px) {
-      transform: scale(0.8);
+      .transform(scale(0.8));
       left: 80px;
       top: 640px;
      }
      @media (max-width: 420px) {
-      transform: scale(0.6);
+      .transform(scale(0.6));
       left: 80px;
       top: 840px;
      }
@@ -63,7 +62,7 @@
         width: 100px;
         height: 100px;
         background: #ff66a3;
-        transform: translate(-60px, 220px);
+        .transform(translate(-60px, 220px));
       }
       div:nth-child(2) {
         position: absolute;
@@ -71,11 +70,11 @@
         height: 233px;
         border-radius: 14px;
         background: #9a77e5;
-        transform: rotate(32.61deg) translate(80px, 0);
+        .transform(rotate(32.61deg) translate(80px, 0));
       }
       div:nth-child(3) {
         position: absolute;
-        transform: translate(240px, 210px);
+        .transform(translate(240px, 210px));
       }
       div:nth-child(4) {
         position: absolute;
@@ -83,7 +82,7 @@
         width: 221px;
         height: 221px;
         background: #ff66a3;
-        transform: translate(0, 300px);
+        .transform(translate(0, 300px));
       }
       div:nth-child(5) {
         position: absolute;
@@ -91,7 +90,7 @@
         width: 113px;
         height: 113px;
         background: #9a77e5;
-        transform: rotate(-6.24deg) translate(200px, 460px);
+        .transform(rotate(-6.24deg) translate(200px, 460px));
       }
     }
   }
@@ -120,3 +119,4 @@
   }
 }
 }
+

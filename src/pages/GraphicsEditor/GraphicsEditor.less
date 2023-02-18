@@ -1,0 +1,119 @@
+@import '../../assets/design.less';
+@import '../../assets/flex.less';
+
+.editor {
+    width: 100%;
+    display: flex;
+    height: calc(100vh - 91px);
+    .active {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+    &__menu {
+        width: 100px;
+        height: 100%;
+        background-color: #9A77E5;
+        .flex-display(flex);
+        .flex-direction(column);
+        .align-items(center);
+        &_tab {
+            margin: 10px 15px;
+            padding: 6px;
+            border-radius: 14px;
+            cursor: pointer;
+            .transition(0.5s);
+            .img {
+                display: block;
+                margin: 0 auto;
+            }
+            .text {
+                display: block;
+                text-align: center;
+                font-size: 12px;
+                color: white;
+                font-weight: 600;
+            }
+        }
+        &_tab:first-child {
+            margin: 25px 15px 10px 15px;
+        }
+        &_tab:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    &__settings {
+        width: 410px;
+        height: 100%;
+        background-color: #F5F5F5;
+        overflow-y: hidden;
+        &_media-and-photo {
+            input {
+                display: block;
+                padding: 9px 47px;
+                .border-radius(5px);
+                margin: 33px 0 20px 10px;
+                outline: none;
+                border: none;
+                font-size: 16px;
+                font-weight: 400;
+                color: #7B7C7D;
+            }
+            .input::before {
+                display: block;
+                position: absolute;
+                transform: translate(20px, 10px);
+                content: ' ';
+                width: 20px;
+                height: 20px;
+                background: url("../../assets/images/search.svg");
+            }
+            .input::after {
+                display: block;
+                position: absolute;
+                transform: translate(320px, -48px);
+                content: ' ';
+                width: 23px;
+                height: 20px;
+                background: url("../../assets/images/camera.svg");
+            }
+            .templates {
+                .flex-display(flex);
+                .flex-direction(column);
+                margin-left: 10px;
+                position:relative;
+                overflow-y: scroll !important;
+                height: 800px;
+                pointer-events: auto;
+                .btns {
+
+                    max-width: 90%;
+                    button {
+                        padding: 10px 22px;
+                        outline: none;
+                        background-color: white;
+                        border: 1px solid #69696A;
+                        border-radius: 10px;
+                        color: #69696A;
+                        margin: 7px 8px 0 0;
+                        cursor: pointer;
+                    }
+                }
+                .media {
+                    .flex-display(flex);
+                    .flex-wrap(wrap);
+                    max-width: 90%;
+                    margin-top: 10px;
+                    div {
+                        width: 163px;
+                        margin: 9px 7px 0 0;
+                        img {
+                            width: 100%;
+                        }
+                    }
+                    
+                }
+            }
+           
+        }
+    }
+}

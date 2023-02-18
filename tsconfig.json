@@ -1,7 +1,9 @@
-{
+{ 
+    "compileOnSave": true,
     "compilerOptions": {
       "target": "es5",
       "isolatedModules": false,
+      
       "lib": [
         "dom",
         "dom.iterable",
@@ -20,6 +22,6 @@
       "noEmit": false,
       "jsx": "react-jsx"
     },
-    "include": ["src/components", "src/custom.d.ts", "src/pages/Profile", "src/features/template"]
+    "include": ["./src/**"],
   }
   
