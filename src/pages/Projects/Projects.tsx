@@ -7,9 +7,9 @@ import './Projects.less';
 export const Projects: React.FC = () => {
     const drop = useSelector((state: boolean | any) => state.dropReducer.drop)
 
-    useEffect(() => {
-        document.title = `Проекты Creatiqa `
-    },[])
+    // useEffect(() => {
+    //     document.title = `Проекты Creatiqa `
+    // },[])
 
     return(
         <>

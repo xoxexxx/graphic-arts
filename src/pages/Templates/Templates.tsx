@@ -13,9 +13,9 @@ export const Templates = () => {
   const drop = useSelector((state: boolean | any) => state.dropReducer.drop);
   const isLogin = useSelector((state: boolean | any) => state.authReducer.isLogin);
   const listTemp = useSelector((state: boolean | any) => state.templateListReducer.data)
-  useEffect(() => {
-    document.title = `Шаблоны Creatiqa `
-},[])
+//   useEffect(() => {
+//     document.title = `Шаблоны Creatiqa `
+// },[])
     useEffect(() => {
         if (!isLogin) {
             return navigate('/')
