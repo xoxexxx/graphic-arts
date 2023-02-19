@@ -5,9 +5,9 @@ import {TemplatesHover} from '../../components/templates-hover/TempHover'
 export const Home = () => {
   const drop = useSelector((state: any) => state.dropReducer.drop);
 
-  useEffect(() => {
-    document.title = `Creatiqa `
-},[])
+//   useEffect(() => {
+//     document.title = `Creatiqa`
+// },[])
 
 
   return (

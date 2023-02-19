@@ -14,9 +14,9 @@ export const Main = () => {
   const isLogin = useSelector(
     (state: boolean | any) => state.authReducer.isLogin
   );
-  useEffect(() => {
-    document.title = `Главная Creatiqa `;
-  }, []);
+  // useEffect(() => {
+  //   document.title = `Главная Creatiqa `;
+  // }, []);
   useEffect(() => {
     dispatch({type: "NULL"})
     if (!isLogin) {

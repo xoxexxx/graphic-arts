@@ -14,9 +14,9 @@ export const Profile: React.FC = () => {
   const isLogin = useSelector((state: boolean | any) => state.authReducer.isLogin)
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  useEffect(() => {
-    document.title = `Профиль Creatiqa`
-},[])
+//   useEffect(() => {
+//     document.title = `Профиль Creatiqa`
+// },[])
 
   const dropHandler = () => {
     dispatch({type: "DROP_", payload: !drop_})

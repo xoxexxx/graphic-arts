@@ -24,6 +24,7 @@ export const mediaTemplates = [
         name: '88',
         url: r88
     },
+    
 ]
 export const mediaBtnsTemplates = [
     {
