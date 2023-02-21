@@ -3,9 +3,10 @@ import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
 import { authReducer } from "./reducers/auth";
 import { userDataReducer } from "./reducers/data-user";
-import { dropReducer, profileReducer } from "./reducers/drop";
+import { dropReducer, isEditReducer, profileReducer } from "./reducers/drop";
 import { templateListReducer } from "./reducers/template";
 import { editorReducer } from "./reducers/editor";
+import { canvasMediaSettingsReducer } from './reducers/canvas';
 
 const rootReducer = combineReducers({
   authReducer: authReducer,
@@ -13,7 +14,9 @@ const rootReducer = combineReducers({
   dropReducer: dropReducer,
   profileReducer: profileReducer,
   templateListReducer: templateListReducer,
-  editorReducer: editorReducer
+  editorReducer: editorReducer,
+  isEditReducer: isEditReducer,
+  canvasMediaSettingsReducer: canvasMediaSettingsReducer
 });
 
 const state = {};

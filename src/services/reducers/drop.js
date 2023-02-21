@@ -4,7 +4,8 @@ import { Action } from "@remix-run/router"
 const initialState = {
     drop: false,
     drop_: false,
-    isProfile: false
+    isProfile: false,
+    isEdit: false
 }
 
 export const dropReducer = (state = initialState, action) => {
@@ -37,5 +38,19 @@ export const profileReducer = (state = initialState, action) => {
         }
         default: 
             return state
+    }
+}
+
+export const isEditReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case "EDITOR": {
+            return {
+                ...state,
+                isEdit: action.payload
+            }
+
+        }
+        default:
+                return state
     }
 }

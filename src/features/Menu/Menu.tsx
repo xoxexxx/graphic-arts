@@ -17,6 +17,7 @@ import { Registration } from "../../features/Registration/Registration";
 import { IPopup } from "./types";
 import "./Menu.less";
 import { EMenu } from "./EMenu";
+import { twMerge } from "tailwind-merge";
 
 const test = require("../../assets/images/test.png");
 const logo = require("../../assets/images/Logo.svg");
@@ -43,7 +44,7 @@ export const Menu: React.FC = () => {
   const [popup, setPopup] = useState<IPopup>({ register: false, auth: false });
 
   const showRegistrationHandle = () => {
-    document.title = `Creatiqa Регистрация`;
+    // document.title = `Creatiqa Регистрация`;
     setPopup({ register: true, auth: false });
   };
   const closeHandle = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -52,7 +53,7 @@ export const Menu: React.FC = () => {
     setPopup({ register: false, auth: false });
   };
   const showLoginHandle = () => {
-    document.title = `Creatiqa Вход`;
+    // document.title = `Creatiqa Вход`;
     setPopup({ register: false, auth: true });
   };
   const dropHandler = () => {
@@ -81,7 +82,7 @@ export const Menu: React.FC = () => {
             </div>
           )}
           {!isProfile && <DropMenu onClick={dropHandler} />}
-          <div className={`menu__box ${isProfile && "flex"}`}>
+          <div className={twMerge('menu__box', isProfile && 'flex')}>
             {!drop_ && (
               <Link to="/" className={`${isProfile && "isProfileLogo"}`}>
                 <div className="menu__box_logo">

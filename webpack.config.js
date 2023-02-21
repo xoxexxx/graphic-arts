@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
   context: path.resolve(__dirname, "src"),
@@ -62,13 +63,21 @@ module.exports = {
         test: /\.json$/,
         use: "json-loader",
       },
-      {
-        test: /\.(s(a|c)ss)$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
-      },
+      
       {
         test: /\.less$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "less-loader"],
+        use: [                    
+          MiniCssExtractPlugin.loader,
+          { loader: 'css-loader' },
+          {
+              loader: 'postcss-loader',
+              
+          },
+          {
+              loader: 'less-loader',
+              
+          } 
+      ]
       },
       {
         test: /\.(png|jpg|svg|gif)$/,
