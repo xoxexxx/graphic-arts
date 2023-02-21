@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { Resize } from '../../components/resize/Resize'
+import { Canvas, MediaCanvas } from '../../features/Canvas/Canvas'
 import { EditorMenu } from '../../features/EditorMenu/EditorMenu'
 import { EditorSettings } from '../../features/GraphitcsEditorSettings/EditorSettings'
 import { MediaControl } from '../../features/GraphitcsEditorSettings/Settings'
@@ -26,7 +27,8 @@ export const GraphicsEditor = () => {
             {currentMenu && <EditorSettings />}
             <div className='editor__canvas'>
                 {current === "MEDIA" && <MediaControl />}
-                <div className='canvas'></div>
+                {current === "MEDIA" && <MediaCanvas />}
+                {current !== "MEDIA" && <Canvas />} 
                 {current === "MEDIA" && <Resize />}
             </div>
         </div>

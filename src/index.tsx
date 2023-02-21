@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import { store } from "./services/store";
 import { BrowserRouter } from "react-router-dom";
 
-import { CurrentProvider } from "./hooks/contextMenu";
+
 const root = (document.getElementById("root") as HTMLElement);
 const app = createRoot(root);
 app.render(

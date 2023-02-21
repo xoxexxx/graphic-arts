@@ -12,7 +12,7 @@ export const EMenu:React.FC = () => {
         <div className="e-menu">
             <div className="e-menu__box-left">
                 <ul>
-                    <li> <Link to='/home'><img src={arrow} style={{margin: '0 10px 0 0', transform: 'translate(0, 5px)'}} alt="creatiqa_main"/> Главная</Link></li>
+                    <li> <Link to='/home'><img src={arrow} style={{margin: '0 10px 0 0'}} alt="creatiqa_main"/> Главная</Link></li>
                     <li>Файл</li>
                     <li>Размер</li>
                 </ul>

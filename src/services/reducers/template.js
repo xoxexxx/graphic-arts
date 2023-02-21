@@ -45,3 +45,4 @@ export const templateListReducer = (state = initialState, action) => {
             return state
     }
 }
+
