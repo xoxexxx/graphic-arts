@@ -15,7 +15,6 @@ import { Auth } from "../Auth/Auth";
 import { Registration } from "../../features/Registration/Registration";
 
 import { IPopup } from "./types";
-import "./Menu.less";
 import { EMenu } from "./EMenu";
 import { twMerge } from "tailwind-merge";
 

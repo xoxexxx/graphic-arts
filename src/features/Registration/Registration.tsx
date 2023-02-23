@@ -12,7 +12,7 @@ export const Registration: React.FC<{popup: IPopup | any, handlers: any}> = ({po
     const dispatch = useDispatch()
     const [verify, setVerify] = useState(false)
     const [reg, setReg] = React.useState<Partial<IUserData>>({
-        email: 'fupi018@gmail.com',
+        email: null,
         password: null,
         password2: null,
         phone: null,
