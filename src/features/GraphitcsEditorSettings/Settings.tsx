@@ -14,6 +14,10 @@ const arrow2 = require('../../assets/images/e-arrow2.svg');
 const window = require("../../assets/images/e-window.svg");
 const basket = require("../../assets/images/e-basket.svg");
 
+const f1 = require("../../assets/editor-templates/filter1.svg")
+const f2 = require("../../assets/editor-templates/filter2.svg")
+const f3 = require("../../assets/editor-templates/filter3.svg")
+
 export const MediaControl: React.FC = () => {
     const isEdit = useSelector((state: any) => state.isEditReducer.isEdit)
     const dispatch = useDispatch()
@@ -59,6 +63,16 @@ export const Settings: React.FC = () => {
     const handleGrayscaleChange = (e) => {
         dispatch({type: "ОТТЕНОК", payload: Math.round(e[0])})
     }
+
+    const handleBlueFilter = () => {
+        dispatch({type: "BLUE"})
+    }
+    const handleGreyscaleFilter = () => {
+        dispatch({type: "GREYSCALE"})
+    }
+    const handlePurpleFilter = () => {
+        dispatch({type: "PURPLE"})
+    }
     return(
         <div className="editor__settings_box">
             <h2>Настройки</h2>
@@ -70,7 +84,7 @@ export const Settings: React.FC = () => {
                     </div>
                     <Nouislider
                     range={{ min: 0, max: 200 }} 
-                    start={[100]} 
+                    start={[settings.settings.bright]} 
                     onChange={handleBrightChange}  connect />
                 </div>
                 <div className="settings__block">
@@ -80,7 +94,7 @@ export const Settings: React.FC = () => {
                     </div>
                     <Nouislider 
                     onChange={handleContrastChange}
-                    range={{ min: 0, max: 200 }} start={[100]}  connect />
+                    range={{ min: 0, max: 200 }} start={[settings.settings.contrast]}  connect />
                 </div>
                 <div className="settings__block">
                     <div className="settings__block_name">
@@ -89,7 +103,7 @@ export const Settings: React.FC = () => {
                     </div>
                     <Nouislider
                     onChange={handleSaturationChange}
-                    range={{ min: 0, max: 200 }} start={[100]}  connect />
+                    range={{ min: 0, max: 200 }} start={[settings.settings.saturation]}  connect />
                 </div>
                 <div className="settings__block">
                     <div className="settings__block_name">
@@ -98,10 +112,30 @@ export const Settings: React.FC = () => {
                     </div>
                     <Nouislider
                     onChange={handleGrayscaleChange}
-                    range={{ min: 0, max: 100 }} start={[100]}  connect />
+                    range={{ min: 0, max: 100 }} start={[settings.settings.grayscale]}  connect />
                 </div>
             </div>
             <h2>Фильтры</h2>
+            <div className="editor__settings_box-filter">
+                <div className="item-slider">
+                    <div className="item" onClick={handleBlueFilter}>
+                        <img src={f1} alt="Blue" />
+                        <span>Blue</span>
+                    </div>
+                    <div className="item" onClick={handleGreyscaleFilter}>
+                    <img src={f2} alt="Greyscale" />
+                        <span>Greyscale</span>
+                    </div>
+                    <div className="item" onClick={handlePurpleFilter}>
+                    <img src={f3} alt="Purple" />
+                        <span>Purple</span>
+                    </div>
+                </div>
+                <div className="arrows">
+                    <button>←</button>
+                    <button>→</button>
+                </div>
+            </div>
         </div>
     )
 }
@@ -110,7 +144,7 @@ export const Templates: React.FC = () => {
     const dispatch = useDispatch()
     const handler = (x) => {
         console.log(x)
-        dispatch({type: "CURRENT_MEDIA", payload: x.url})
+        dispatch({type: "CURRENT_MEDIA", payload: x})
     }
 
 

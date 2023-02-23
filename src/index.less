@@ -4,11 +4,9 @@
 
 @import "../src/assets/flex.less";
 @import "../src/assets/design.less";
+
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap");
-@import './pages/Home/Home.less';
-
-
 
 @import "nouislider/distribute/nouislider.css";
 
@@ -19,6 +17,27 @@ body {
   // font-family: 'Comfortaa';
   font-family: "Source Sans Pro", sans-serif;
   background: white;
+}
+
+.home__creatiqa {
+  font-family: "Comfortaa";
+  background: linear-gradient(
+    270deg,
+    rgba(255, 51, 133, 0.53) -20.67%,
+    rgba(87, 28, 211, 0.78) 82.4%,
+    #00acac 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.home__svg {
+  div:nth-child(2) {
+    .transform(rotate(32.61deg) translate(80px, 0));
+  }
+  div:nth-child(5) {
+    .transform(rotate(-6.24deg) translate(200px, 460px)); 
+  }
 }
 
 .drop__menu {
@@ -40,22 +59,6 @@ body {
     top: 20px;
   }
 }
-.show {
-  display: flex !important;
-}
-
-.flex {
-  .flex-display(flex);
-  .flex-direction(row) !important;
-  .justify-content(space-between) !important;
-}
-
-.isProfileLogo {
-  @media (max-width: 1140px) {
-    .transform(translate(60px, 0));
-  }
-}
-
 .drop_profile_menu {
   width: 100vw;
   height: 100%;
@@ -85,22 +88,6 @@ body {
     }
   }
 }
-.hidden {
-  display: none !important;
-}
-.block {
-  display: block !important;
-}
-.logo_ {
-  cursor: pointer;
-}
-
-.format-settings {
-  
-}
-
-
-
 /// SLIDER
 
 .noUi-touch-area {
@@ -127,4 +114,33 @@ body {
 }
 .noUi-handle::before, .noUi-handle::after {
   display: none;
+}
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.menu__logo {
+  font-family: "Comfortaa";
+}
+input {
+  font-family: "Source Sans Pro";
 }

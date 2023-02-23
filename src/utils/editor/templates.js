@@ -6,23 +6,33 @@ import r88 from '../../assets/editor-templates/Rectangle88.png'
 export const mediaTemplates = [
     {
         name: '84',
-        url: r84
+        url: r84,
+        w: 320,
+        h: 515,
     },
     {
         name: '85',
-        url: r85
+        url: r85,
+        w: 320,
+        h: 515,
     },
     {
         name: '86',
-        url: r86
+        url: r86,
+        w: 320,
+        h: 385,
     },
     {
         name: '87',
-        url: r87
+        url: r87,
+        w: 320,
+        h: 385,
     },
     {
         name: '88',
-        url: r88
+        url: r88,
+        w: 320,
+        h: 515,
     },
     
 ]

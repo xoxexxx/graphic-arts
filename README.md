@@ -1,5 +1,3 @@
 # Creatiqa - это поставщик программных решений для графического дизайна
 
-
-![](https://raw.githubusercontent.com/xoxexxx/creatiqa_frontend/8f8b4f8a25a4ba4d98f7b4281f727322907db94b/src/assets/images/Logo.svg)
-
+![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) ![Less](https://img.shields.io/badge/less-2B4C80?style=for-the-badge&logo=less&logoColor=white)   KONVA.js

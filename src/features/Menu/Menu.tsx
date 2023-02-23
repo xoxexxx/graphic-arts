@@ -82,43 +82,52 @@ export const Menu: React.FC = () => {
             </div>
           )}
           {!isProfile && <DropMenu onClick={dropHandler} />}
-          <div className={twMerge('menu__box', isProfile && 'flex')}>
+          <div className={twMerge('my-5 mx-auto py-0 px-10 flex justify-between max-[1140px]:flex-col max-[1140px]:justify-start', isProfile && 'flex max-[1140px]:flex-row max-[1140px]:justify-between')}>
             {!drop_ && (
-              <Link to="/" className={`${isProfile && "isProfileLogo"}`}>
-                <div className="menu__box_logo">
-                  <img src={logo} alt="creatiqa" />
+              <Link to="/" className={twMerge(isProfile && "max-[1140px]:translate-x-14")}>
+                <div className="text-[#232426] font-medium text-2xl rounded-full mt-2 flex justify-center items-center max-[1140px]:justify-start
+                   max-[1140px]:scale-90 max-[1140px]:-translate-x-[50px]
+                   max-[600px]:hidden">
+                  <img className="mr-4 w-12"
+                   src={logo} alt="creatiqa" />
                   CREATIQA
                 </div>{" "}
               </Link>
             )}
-            {/* <Link to='/' className={`${isProfile && 'isProfileLogo'}`}> {!drop_ && <div className="menu__box_logo"><img src={`${logo}`} alt="creatiqa" />CREATIQA</div>}  </Link> */}
             <Navigation />
             {isLogin ? (
-              <ul className={`menu__box_items-join ${isProfile && "show"}`}>
-                <button onClick={goEditor}>Создать проект</button>
+              <ul className={twMerge(`max-[1140px]:hidden flex mt-4`, isProfile && "flex")}>
+                <button className="mr-6 w-52 h-11 bg-[#784adc]
+                 text-white text-lg font-normal border-none
+                  outline-none cursor-pointer rounded-xl" 
+                  onClick={goEditor}>Создать проект</button>
                 <Link to="/profile">
                   <img width="50" src={test} alt="photo" />
                 </Link>
-              </ul>
+              </ul> 
             ) : (
-              <ul className={`menu__box_items  ${!drop && "mob__hidden"} `}>
-                <li onClick={showLoginHandle} className="item_auth">
+              <ul className={twMerge(`flex max-[1140px]:flex-col max-[1140px]:p-0 max-[1140px]:mt-[30vh]` ,!drop && "max-[1140px]:hidden")}>
+                <li onClick={showLoginHandle} 
+                className="m-[25px 0 0 55px] list-none font-normal rounded-xl h-min  mr-4 py-3.5 px-8
+                max-[1140px]:block  max-[1140px]:p-4 max-[1140px]:m-0 max-[1140px]:text-center max-[1140px]:bg-[#784ADC]
+                ">
                   {" "}
-                  <NavLink to="/">Войти</NavLink>
+                  <NavLink className='text-[#232426] max-[1140px]:text-white max-[1140px]:font-medium align-middle' to="/">Войти</NavLink>
                 </li>
                 <li
                   onClick={showRegistrationHandle}
-                  className="item_registration"
+                  className="h-min 
+                   bg-[#f2f2f2] duration-75 py-3.5 px-11 cursor-pointer m-[10px 0 0 55px] rounded-xl list-none  font-normal hover:bg-[#d9d9d9]
+                   max-[1140px]:block max-[1140px]:p-4  max-[1140px]:mt-3 max-[1140px]:text-center max-[1140px]:font-medium max-[1140px]:m-0
+                   "
                 >
-                  <NavLink to="/">Зарегистрироваться</NavLink>
+                  <NavLink className="text-[#232426] align-middle" to="/">Зарегистрироваться</NavLink>
                 </li>
               </ul>
             )}
           </div>
           <div
-            className={`${
-              (popup.register && "popup") || (popup.auth && "popup")
-            }  ${!drop && "mob__hidden"} `}
+            className={twMerge(popup.register && "fixed top-0 bg-[#000000]/70 backdrop-opacity-30 z-50 w-screen h-screen flex justify-center items-center", popup.auth && "fixed top-0 bg-[#000000]/70 z-50 w-screen h-screen flex justify-center items-center", !drop && "max-[1140px]:hidden")}
           >
             <Registration
               popup={[popup, setPopup]}
