@@ -22,14 +22,17 @@ export const Verify = ({email, login, set}) => {
         }).catch(() => dispatch({type: "FETCH_AUTH_ERROR"}))
     }
     return(
-        <div className='popup__registration_verify'>
-            <button onClick={close} className="x"><img src={`${closeSVG}`} alt="login-creatiqa" /></button>
-            <form action="verify">
+        <div className=''>
+            <button onClick={close} className="!translate-x-[430px] translate-y-[30px]"><img src={`${closeSVG}`} alt="login-creatiqa" /></button>
+            <form action="verify" className='w-80 my-12 mx-auto'>
                 <fieldset>
-                    <label htmlFor="verify">Код подтверждения
-                        <input id='value' placeholder='Код подтверждения' value={value} onChange={e => setValue(e.target.value)} type="number" />
+                    <label className="text-2xl" htmlFor="verify">Код подтверждения
+                        <input className="m-0" id='value' placeholder='Код подтверждения' 
+                        value={value} 
+                        onChange={e => setValue(e.target.value)} type="number" />
                     </label>
-                    <button onClick={submit}>Отправить</button>
+                    <button className="py-4 px-9 text-lg bg-[#784adc] border-none outline-none text-white rounded-xl mt-8" 
+                    onClick={submit}>Отправить</button>
                 </fieldset>
             </form>
         </div>

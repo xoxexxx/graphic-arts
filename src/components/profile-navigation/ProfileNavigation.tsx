@@ -10,15 +10,15 @@ export const ProfileNavigation: React.FC = () => {
         dispatch({type: "DROP", payload: false})
     }
     return(
-        <div className="menu__box_navigation_profile">
-                <div className="menu__box_navigation_profile-info">
-                    <img width='79' src={photo} alt="creatiqa-profile" />
-                    <div className="info">
-                        <span>Имя Фамилия</span>
-                        <span>mail@gmail.com</span>
-                    </div>
-                </div>
-            <Link onClick={handler} to='/profile'><img src={arrow} alt="creatiqa" /></Link>
+        <div className="menu__box_navigation_profile flex justify-between mt-8 min-[1140px]:hidden">
+        <div className="menu__box_navigation_profile-info flex">
+            <img width='79' src={photo} alt="creatiqa-profile" />
+            <div className="info flex flex-col ml-5">
+                <span className="text-[#7B7C7D] text-base mt-2.5">Имя Фамилия</span>
+                <span className="text-[#7B7C7D] text-base mt-2.5">mail@gmail.com</span>
+            </div>
         </div>
+    <Link className="mx-auto" onClick={handler} to='/profile'><img src={arrow} alt="creatiqa" /></Link>
+</div>
     )
 }

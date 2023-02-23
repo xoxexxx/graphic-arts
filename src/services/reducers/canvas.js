@@ -1,12 +1,12 @@
 const initialState = {
     canvas: null,
     settings: {
-        height: null,
-        width: null,
+        height: 360,
+        width: 200,
         bright: 100,
         contrast: 100,
         saturation: 100,
-        grayscale: 100,
+        grayscale: 0,
         rotate: 0,
     },
     currentMedia: null,
@@ -57,7 +57,52 @@ export const canvasMediaSettingsReducer = (state = initialState, action) => {
         case "CURRENT_MEDIA": {
             return {
                 ...state,
-                currentMedia: action.payload
+                settings: {
+                    height: action.payload.h,
+                    width: action.payload.w,
+                    bright: 100,
+                    contrast: 100,
+                    saturation: 100,
+                    grayscale: 0,
+                    rotate: 0,
+                },
+                currentMedia: action.payload.url
+            }
+        }
+        case "BLUE": {
+            return {
+                ...state,
+                settings: {
+                    ...state.settings,
+                    bright: 135,
+                    contrast: 115,
+                    saturation: 115,
+                    grayscale: 30,
+                }
+            }
+        }
+        case "GREYSCALE": {
+            return {
+                ...state,
+                settings: {
+                    ...state.settings,
+                    bright: 135,
+                    contrast: 100,
+                    saturation: 65,
+                    grayscale: 75,
+                }
+            }
+        }
+        case "PURPLE": {
+            return {
+                ...state,
+                settings: {
+                    ...state.settings,
+                    bright: 135,
+                    contrast: 120,
+                    saturation: 110,
+                    grayscale: 30,
+                }
             }
         }
         default: 

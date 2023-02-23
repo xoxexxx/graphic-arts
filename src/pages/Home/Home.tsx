@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import "./Home.less";
+import React from "react";
 import { useSelector } from "react-redux";
 import {TemplatesHover} from '../../components/templates-hover/TempHover'
 export const Home = () => {
@@ -13,21 +12,33 @@ export const Home = () => {
   return (
     <>
       {!drop && (
-        <div className="home-header">
+        <div className=" 
+        max-w-screen-lg ml-auto mr-auto mt-12 mb-12">
           <TemplatesHover />
-          <div className="home-header__box">
-            <div className="home-header__box_subtitle">
+          <div className="
+          flex px-12 
+          max-[1040px]:flex-col">
+            <div className="
+            max-w-lg text-2xl font-light mt-36 mr-24 
+            max-[1040px]:w-full max-[1040px]:mx-auto max-[1040px]:my-0 max-[1040px]:max-w-3xl  max-[1040px]:mt-16">
               <p>
-                <span>CREATIQA</span> - поможет найти решение для графического
+                <span className="font-bold bg-clip-text home__creatiqa">CREATIQA</span> - поможет найти решение для графического
                 дизайна, презентаций, макетов для полиграфии, графики для
                 социальных сетей и многого другого в мире цифровых иллюстраций.
                 Creatiqa подходит как профессионалам, так и любителям.
               </p>
             </div>
-            <div className="home-header__box_image">
-              <div></div>
-              <div></div>
-              <div>
+            <div 
+            className="home__svg 
+            relative z-0 
+             max-[1040px]:absolute max-[1040px]:left-64 max-[1040px]:top-[520px]
+             max-[840px]:left-40 max-[840px]:top-[580px] 
+             max-[660px]:scale-75 max-[660px]:left-28 max-[660px]:top-[500px]
+             max-[420px]:scale-[0.6] max-[420px]:left-10 max-[420px]:top-[640px]
+             ">
+              <div className="absolute rounded-full w-24 h-24  bg-[#ff66a3]  -translate-x-[60px] translate-y-[220px]"></div>
+              <div className="absolute w-60 h-60 rounded-2xl bg-[#9a77e5]"></div>
+              <div className="absolute translate-x-[240px] translate-y-[210px]">
                 <svg
                   width="226"
                   height="199"
@@ -41,12 +52,23 @@ export const Home = () => {
                   />
                 </svg>
               </div>
-              <div></div>
-              <div></div>
+              <div className="absolute rounded-full w-56 h-56  bg-[#ff66a3] translate-y-[300px]"></div>
+              <div className="absolute rounded-2xl w-28 h-28 bg-[#9a77e5]"></div>
             </div>
           </div>
-          <div className="home-header__start-button">
-            <button>Начать бесплатно</button>
+          <div className="
+          text-center mt-32 px-5
+          max-[1020px]:w-11/12
+          max-[1020px]:mt-16
+          max-[1020px]:mx-auto
+          ">
+            <button 
+            className="text-white py-4 px-9 bg-[#784ADC] 
+            outline-none border-none 10px; rounded-lg font-semibold
+            text-lg cursor-pointer
+            max-[1020px]:w-11/12
+           
+            ">Начать бесплатно</button>
           </div>
         </div>
       )}
