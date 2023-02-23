@@ -1,15 +1,15 @@
-import React from "react";
-import { Menu } from "./features/Menu/Menu";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Home } from "./pages/Home/Home";
+import React, { useEffect } from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
+
 import { useSelector } from "react-redux";
+import { Home } from "./pages/Home/Home";
 import { Main } from "./pages/Main/Main";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 import { Profile } from "./pages/Profile/Profile";
 import { Templates } from "./pages/Templates/Templates";
 import { Projects } from "./pages/Projects/Projects";
 import { GraphicsEditor } from "./pages/GraphicsEditor/GraphicsEditor";
+
+import { Menu } from "./features/Menu/Menu";
 
 export const App: React.FC = () => {
   const login = useSelector((state: boolean | any )=> state.authReducer.isLogin)

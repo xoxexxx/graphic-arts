@@ -74,8 +74,8 @@ export const Menu: React.FC = () => {
       ) : (
         <div className="menu">
           {drop_ && (
-            <div className={"drop_profile_menu"}>
-              <div className="drop_profile_menu_nav">
+            <div className="w-screen h-full fixed top-0 left-0 bg-[#000000]/20">
+              <div className="relative h-screen w-[300px] z-1 bg-white">
                 <JoinNavigation />
               </div>
             </div>

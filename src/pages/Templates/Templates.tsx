@@ -4,7 +4,7 @@ import { JoinNavigation } from "../../components/Menu/JoinNavigation";
 import { mainTemp } from "../../utils/temp/main-templates";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
-import "./Templates.less";
+
 
 export const Templates = () => {
   const dispatch = useDispatch()
