@@ -1,6 +1,6 @@
 import React from "react";
-import test from '../../assets/images/test.png'
-import del from '../../assets/images/basket.svg'
+const del = require('../../assets/images/basket.svg')
+const test = require( '../../assets/images/test.png')
 export const ProfileBlock = () => {
 
     return(
@@ -9,8 +9,8 @@ export const ProfileBlock = () => {
                 <h2>Профиль</h2>
                 <span>Мой тариф: <a href="#">Премиум</a></span>
                 <div className="profile__box_media_photo">
-                    <img src={`${test}`} alt="creatiqa" />
-                    <div className="del"> <span>Фото профиля </span> <img src={`${del}`} alt="delete" /></div>
+                    <img src={test} alt="creatiqa" />
+                    <div className="del"> <span>Фото профиля </span> <img src={del} alt="delete" /></div>
                     <button>Редактировать</button>
                 </div>
                 
