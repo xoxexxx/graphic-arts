@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+
 import { DropMenu } from "../../components/drop-menu/drop-menu";
 import { JoinNavigation } from "../../components/Menu/JoinNavigation";
 import { ProfileBlock } from "../../features/Profile/ProfileBlock";
-
-import './Profile.less'
 
 export const Profile: React.FC = () => {
 
@@ -29,9 +28,9 @@ export const Profile: React.FC = () => {
   },[])
 
   return (
-    <div className="profile">
+    <div className="profile max-w-full my-0 mx-auto flex">
       <DropMenu onClick={dropHandler} />
-      <div className="profile__media-mob">
+      <div className="profile__media-mob max-[1140px]:hidden">
       <JoinNavigation />
       </div>
       <ProfileBlock />

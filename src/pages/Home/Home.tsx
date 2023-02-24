@@ -22,7 +22,7 @@ export const Home = () => {
           flex px-12 
           max-[1040px]:flex-col">
             <div className="
-            max-w-lg text-2xl font-light mt-36 mr-24 
+            max-w-[27rem] text-2xl font-light mt-36 mr-44 
             max-[1040px]:w-full max-[1040px]:mx-auto max-[1040px]:my-0 max-[1040px]:max-w-3xl  max-[1040px]:mt-16">
               <p>
                 <span className="font-bold bg-clip-text home__creatiqa">CREATIQA</span> - поможет найти решение для графического
@@ -60,7 +60,7 @@ export const Home = () => {
             </div>
           </div>
           <div className="
-          text-center mt-32 px-5
+          text-center mt-56 px-5
           max-[1020px]:w-11/12
           max-[1020px]:mt-16
           max-[1020px]:mx-auto

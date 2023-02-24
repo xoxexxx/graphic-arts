@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Temp } from "../../features/template/Template";
 import { JoinNavigation } from "../../components/Menu/JoinNavigation";
-import { mainTemp } from "../../utils/temp/main-templates";
+import { mainTemp } from "../../utils/templates/main-templates";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -31,16 +31,16 @@ export const Templates = () => {
   return (
     <>
       {!drop && (
-        <div className="templates">
+        <div className="flex !max-w-[100%] mx-auto my-0">
           <JoinNavigation />
           <div className="templates__list">
-            <div className="templates__list_main">
+            <div className="flex flex-wrap mt-4 ml-6 gap-4 ">
               {mainTemp.map((x: any) => (
                 <Temp key={x.id} x={x} onClick={handleTemp} />
               ))}
             </div>
             <h2>{listTemp && listTemp.value}</h2>
-            <div className="templates__list_social">
+            <div className="flex flex-wrap mt-4 ml-6 gap-4 ">
               {listTemp && listTemp.data.map((x: any) => (
                 <Temp key={x.id} x={x} onClick={handleRedactor} />
               ))}

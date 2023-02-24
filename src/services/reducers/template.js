@@ -1,4 +1,4 @@
-import { socialTemp, businessTemp, printTemp, standartTemp, marketingTemp } from "../../utils/temp/main-templates";
+import { socialTemp, businessTemp, printTemp, standartTemp, marketingTemp } from "../../utils/templates/main-templates";
 const initialState = {
     data: null
 }
