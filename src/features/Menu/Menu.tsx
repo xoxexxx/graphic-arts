@@ -4,7 +4,6 @@ import {
   NavLink,
   useLocation,
   useNavigate,
-  useParams,
 } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -74,8 +73,8 @@ export const Menu: React.FC = () => {
       ) : (
         <div className="menu">
           {drop_ && (
-            <div className={"drop_profile_menu"}>
-              <div className="drop_profile_menu_nav">
+            <div className="w-screen h-full fixed top-0 left-0 bg-[#000000]/20">
+              <div className="relative h-screen w-[300px] z-1 bg-white">
                 <JoinNavigation />
               </div>
             </div>
@@ -84,9 +83,11 @@ export const Menu: React.FC = () => {
           <div className={twMerge('my-5 mx-auto py-0 px-10 flex justify-between max-[1140px]:flex-col max-[1140px]:justify-start', isProfile && 'flex max-[1140px]:flex-row max-[1140px]:justify-between')}>
             {!drop_ && (
               <Link to="/" className={twMerge(isProfile && "max-[1140px]:translate-x-14")}>
-                <div className="text-[#232426] font-medium text-2xl rounded-full mt-2 flex justify-center items-center max-[1140px]:justify-start
+                <div className="text-[#232426] font-bold text-2xl rounded-full mt-2 flex justify-center items-center max-[1140px]:justify-start
                    max-[1140px]:scale-90 max-[1140px]:-translate-x-[50px]
-                   max-[600px]:hidden">
+                   max-[600px]:hidden"
+                   style={{fontFamily: "Comfortaa", letterSpacing: '2px'}}
+                   >
                   <img className="mr-4 w-12"
                    src={logo} alt="creatiqa" />
                   CREATIQA
@@ -95,7 +96,7 @@ export const Menu: React.FC = () => {
             )}
             <Navigation />
             {isLogin ? (
-              <ul className={twMerge(`max-[1140px]:hidden flex mt-4`, isProfile && "flex")}>
+              <ul className={twMerge(`max-[1140px]:hidden flex items-center`, isProfile && "!flex")}>
                 <button className="mr-6 w-52 h-11 bg-[#784adc]
                  text-white text-lg font-normal border-none
                   outline-none cursor-pointer rounded-xl" 

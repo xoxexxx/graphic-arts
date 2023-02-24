@@ -20,7 +20,7 @@ export const ProfileNavigation: React.FC = () => {
                 <span className="text-[#7B7C7D] text-base mt-2.5">mail@gmail.com</span>
             </div>
         </div>
-    <Link className="mx-auto" onClick={handler} to='/profile'><img src={arrow} alt="creatiqa" /></Link>
+    <Link className="flex items-center" onClick={handler} to='/profile'><img src={arrow} alt="creatiqa" /></Link>
 </div>
     )
 }
