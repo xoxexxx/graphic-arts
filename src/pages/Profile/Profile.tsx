@@ -8,9 +8,13 @@ import { ProfileBlock } from "../../features/Profile/ProfileBlock";
 
 export const Profile: React.FC = () => {
 
-  const isProfile = useSelector((state: boolean | any) => state.profileReducer.isProfile)
-  const drop_ = useSelector((state: boolean | any) => state.dropReducer.drop_)
-  const isLogin = useSelector((state: boolean | any) => state.authReducer.isLogin)
+   // @ts-ignore
+  const isProfile = useSelector((state) => state.profileReducer.isProfile)
+   // @ts-ignore
+  const drop_ = useSelector((state) => state.dropReducer.drop_)
+   // @ts-ignore
+  const isLogin = useSelector((state) => state.authReducer.isLogin)
+  
   const dispatch = useDispatch()
   const navigate = useNavigate()
 //   useEffect(() => {

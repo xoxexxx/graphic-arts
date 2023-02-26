@@ -5,7 +5,8 @@ import { useSelector } from "react-redux";
 import {TemplatesHover} from '../../components/templates-hover/TempHover';
 
 export const Home = () => {
-  const drop = useSelector((state: any) => state.dropReducer.drop);
+   // @ts-ignore
+  const drop = useSelector((state) => state.dropReducer.drop);
 
 //   useEffect(() => {
 //     document.title = `Creatiqa`

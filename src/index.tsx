@@ -5,6 +5,7 @@ import { App } from "./App";
 import { Provider } from "react-redux";
 import { store } from "./services/store";
 import { BrowserRouter } from "react-router-dom";
+
 import './index.less';
 
 const root = (document.getElementById("root") as HTMLElement);

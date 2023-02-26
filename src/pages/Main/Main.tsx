@@ -9,11 +9,10 @@ export const Main = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate();
   const location = useLocation();
-  
-  const drop = useSelector((state: boolean | any) => state.dropReducer.drop);
-  const isLogin = useSelector(
-    (state: boolean | any) => state.authReducer.isLogin
-  );
+   // @ts-ignore
+  const drop = useSelector((state) => state.dropReducer.drop);
+   // @ts-ignore
+  const isLogin = useSelector((state) => state.authReducer.isLogin);
   // useEffect(() => {
   //   document.title = `Главная Creatiqa `;
   // }, []);

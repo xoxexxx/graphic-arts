@@ -24,7 +24,7 @@ export const ProfileBlock = () => {
                 <fieldset>
                 <input type="text" 
                     className="py-3 px-4 outline-none border border-[#d3d3d4] border-solid rounded-xl w-1/2 mt-1 
-                    max-[1140px]:w-[95%] max-[1140px]:mb-5" />
+                    max-[1140px]:w-[100%] max-[1140px]:mb-5" />
                 <button 
                     className="w-44 h-12 mt-2 outline-none border-none bg-[#f2f2f2] rounded-xl cursor-pointer float-right
                     duration-500 hover:text-white hover:bg-[#784adc]">Редактировать</button>
@@ -34,7 +34,7 @@ export const ProfileBlock = () => {
                 <label className="block mt-6 mx-0 mb-4 text-base">Почта</label>
                 <fieldset>
                 <input className="py-3 px-4 outline-none border border-[#d3d3d4] border-solid rounded-xl w-1/2 mt-1 
-                    max-[1140px]:w-[95%] max-[1140px]:mb-5"   type="email" />
+                    max-[1140px]:w-[100%] max-[1140px]:mb-5"   type="email" />
                 <button className="w-44 h-12 mt-2 outline-none border-none bg-[#f2f2f2] rounded-xl cursor-pointer float-right
                     duration-500 hover:text-white hover:bg-[#784adc]">Изменить</button>
                 </fieldset>  
@@ -43,7 +43,7 @@ export const ProfileBlock = () => {
                 <label className="block mt-6 mx-0 mb-4 text-base">Пароль</label>
                 <fieldset>
                 <input className="py-3 px-4 outline-none border border-[#d3d3d4] border-solid rounded-xl w-1/2 mt-1 
-                    max-[1140px]:w-[95%] max-[1140px]:mb-5"  type="password" />
+                    max-[1140px]:w-[100%] max-[1140px]:mb-5"  type="password" />
                 </fieldset>    
             </div>
         </div>

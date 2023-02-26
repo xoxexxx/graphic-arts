@@ -15,8 +15,6 @@ export const EditorMenu: React.FC = () => {
             dispatch({type: 'HIDDEN'})
             dispatch({type: (e.target as any).dataset.action})
         }
-        
-        
     }
 
     return(

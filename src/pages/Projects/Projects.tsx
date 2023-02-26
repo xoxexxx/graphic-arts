@@ -4,7 +4,8 @@ import { JoinNavigation } from "../../components/Menu/JoinNavigation";
 
 
 export const Projects: React.FC = () => {
-    const drop = useSelector((state: boolean | any) => state.dropReducer.drop)
+     // @ts-ignore
+    const drop = useSelector((state) => state.dropReducer.drop)
 
     // useEffect(() => {
     //     document.title = `Проекты Creatiqa `
