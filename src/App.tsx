@@ -1,28 +1,39 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Home } from "./pages/Home/Home";
 import { Main } from "./pages/Main/Main";
 import { Profile } from "./pages/Profile/Profile";
 import { Templates } from "./pages/Templates/Templates";
 import { Projects } from "./pages/Projects/Projects";
 import { GraphicsEditor } from "./pages/GraphicsEditor/GraphicsEditor";
-
 import { Menu } from "./features/Menu/Menu";
+
+import { useResizeDetector } from 'react-resize-detector';
 
 export const App: React.FC = () => {
   const login = useSelector((state: boolean | any )=> state.authReducer.isLogin)
-
+  const dispatch = useDispatch()
+ 
+  const { width, ref } = useResizeDetector()
+  useEffect(() => {
+    if (width) {
+      if (width >= 1140) {
+        dispatch({ type: "DROP", payload: false});
+        dispatch({type: "DROP_", payload: false})
+      }
+    } 
+  }, [width])
   const navigate = useNavigate();
   useEffect(() => {
     if (login) {
       navigate("/home")
     }
   }, [])
-  
+
   return (
-    <div className="page">
+    <div className="page" ref={ref}>
       <Menu />
       <Routes>
         <Route path="/" element={ <Home />} />

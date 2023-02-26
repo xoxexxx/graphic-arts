@@ -5,7 +5,8 @@ const initialState = {
     drop: false,
     drop_: false,
     isProfile: false,
-    isEdit: false
+    isEdit: false,
+    canvasSize: false
 }
 
 export const dropReducer = (state = initialState, action) => {
@@ -21,6 +22,12 @@ export const dropReducer = (state = initialState, action) => {
             return {
                 ...state,
                 drop_: action.payload
+            }
+        }
+        case "CANVAS_SIZE_DROP": {
+            return {
+                ...state,
+                canvasSize: action.payload
             }
         }
         default: 

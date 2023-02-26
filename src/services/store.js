@@ -6,7 +6,7 @@ import { userDataReducer } from "./reducers/data-user";
 import { dropReducer, isEditReducer, profileReducer } from "./reducers/drop";
 import { templateListReducer } from "./reducers/template";
 import { editorReducer } from "./reducers/editor";
-import { canvasMediaSettingsReducer } from './reducers/canvas';
+import { canvasReducer } from './reducers/canvas';
 
 const rootReducer = combineReducers({
   authReducer: authReducer,
@@ -16,7 +16,7 @@ const rootReducer = combineReducers({
   templateListReducer: templateListReducer,
   editorReducer: editorReducer,
   isEditReducer: isEditReducer,
-  canvasMediaSettingsReducer: canvasMediaSettingsReducer
+  canvasReducer: canvasReducer
 });
 
 const state = {};

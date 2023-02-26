@@ -33,13 +33,11 @@ export const MediaControl: React.FC = () => {
                 <div className="flex mr-5"> <img className="mr-5" src={arrow} alt="back" /><img src={arrow2} alt="next" /> </div>
                 <ul className="p-0 flex ">
                     <li className={twMerge(`py-0 px-1 ml-8 corsor-pointer`,isEdit && 'bg-[#F5F5F5')} onClick={handler}>Редактировать</li>
-                    <li className="py-0 px-1 ml-8 corsor-pointer">Повернуть</li>
                     <li className="py-0 px-1 ml-8 corsor-pointer">Обрезать</li>
                 </ul>
             </div>
             <div className="my-5 mx-6 flex ">
                 <ul className="p-0 flex">
-                    <li className="py-0 px-1 ml-8 corsor-pointer">Расположение</li>
                     <li className="py-0 px-1 ml-8 corsor-pointer"> <img className="cursor-pointer" src={window} alt="window" /> </li>
                     <li className="py-0 px-1 ml-8 corsor-pointer"> <img className="cursor-pointer" src={basket} alt="basket" /> </li>
                 </ul>
@@ -146,7 +144,19 @@ export const Templates: React.FC = () => {
     const dispatch = useDispatch()
     const handler = (x) => {
         console.log(x)
-        dispatch({type: "CURRENT_MEDIA", payload: x})
+        dispatch({type: "ADD_CANVAS_ITEM", payload: {
+            id: x.name,
+            type: 'image',
+            url: x.url,
+            size: {
+                w: x.w,
+                h: x.h
+            },
+            x: 0,
+            y: 0,
+            width: x.w,
+            height: x.h
+        }})
     }
 
 

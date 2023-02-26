@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import {
   Link,
   NavLink,
+  useAsyncValue,
   useLocation,
   useNavigate,
 } from "react-router-dom";
@@ -16,6 +17,7 @@ import { Registration } from "../../features/Registration/Registration";
 import { IPopup } from "./types";
 import { EMenu } from "./EMenu";
 import { twMerge } from "tailwind-merge";
+import { DropSizes } from "./CanvasSize";
 
 const test = require("../../assets/images/test.png");
 const logo = require("../../assets/images/Logo.svg");
@@ -30,8 +32,8 @@ export const Menu: React.FC = () => {
   );
   const drop = useSelector((state: boolean | any) => state.dropReducer.drop);
   const drop_ = useSelector((state: boolean | any) => state.dropReducer.drop_);
+  const drop_canvas_settings = useSelector((state: boolean | any) => state.dropReducer.canvasSize)
   const location = useLocation();
-  const navigate = useNavigate();
   const [reg, setReg] = useState<any>({
     email: null,
     password: null,
@@ -40,6 +42,10 @@ export const Menu: React.FC = () => {
     first_name: null,
   });
   const [popup, setPopup] = useState<IPopup>({ register: false, auth: false });
+
+useEffect(() => {
+
+}, [])
 
   const showRegistrationHandle = () => {
     // document.title = `Creatiqa Регистрация`;
@@ -64,10 +70,12 @@ export const Menu: React.FC = () => {
   }, [location]);
 
   const goEditor = () => {
-    return navigate("/editor");
+    dispatch({type: "CANVAS_SIZE_DROP", payload: true})
   };
+
   return (
     <>
+    {drop_canvas_settings && <DropSizes />}
       {location.pathname == "/editor" ? (
         <EMenu />
       ) : (

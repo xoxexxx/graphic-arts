@@ -10,9 +10,15 @@ export const Templates = () => {
   const dispatch = useDispatch()
     const navigate = useNavigate()
     const location = useLocation()
-  const drop = useSelector((state: boolean | any) => state.dropReducer.drop);
-  const isLogin = useSelector((state: boolean | any) => state.authReducer.isLogin);
-  const listTemp = useSelector((state: boolean | any) => state.templateListReducer.data)
+
+  // @ts-ignore
+  const drop = useSelector((state) => state.dropReducer.drop);
+   // @ts-ignore
+  const isLogin = useSelector((state) => state.authReducer.isLogin);
+   // @ts-ignore
+  const listTemp = useSelector((state) => state.templateListReducer.data)
+
+
 //   useEffect(() => {
 //     document.title = `Шаблоны Creatiqa `
 // },[])
@@ -39,7 +45,7 @@ export const Templates = () => {
                 <Temp key={x.id} x={x} onClick={handleTemp} />
               ))}
             </div>
-            <h2>{listTemp && listTemp.value}</h2>
+            <h2 className="mx-6 p-0 font-normal text-xl">{listTemp && listTemp.value}</h2>
             <div className="flex flex-wrap mt-4 ml-6 gap-4 ">
               {listTemp && listTemp.data.map((x: any) => (
                 <Temp key={x.id} x={x} onClick={handleRedactor} />
