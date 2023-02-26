@@ -28,9 +28,9 @@ export const Profile: React.FC = () => {
   },[])
 
   return (
-    <div className="profile max-w-full my-0 mx-auto flex">
+    <div className="max-w-full my-0 mx-auto flex">
       <DropMenu onClick={dropHandler} />
-      <div className="profile__media-mob max-[1140px]:hidden">
+      <div className="max-[1140px]:hidden">
       <JoinNavigation />
       </div>
       <ProfileBlock />

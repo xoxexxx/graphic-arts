@@ -6,7 +6,6 @@ import { Canvas, MediaCanvas } from '../../features/Canvas/Canvas'
 import { EditorMenu } from '../../features/EditorMenu/EditorMenu'
 import { EditorSettings } from '../../features/GraphitcsEditorSettings/EditorSettings'
 import { MediaControl } from '../../features/GraphitcsEditorSettings/Settings'
-import './GraphicsEditor.less'
 
 
 export const GraphicsEditor = () => {
@@ -22,10 +21,10 @@ export const GraphicsEditor = () => {
     }, [location])
 
     return(
-        <div className='editor'>
+        <div className='editor w-full flex h-screen '>
             <EditorMenu />
             {currentMenu && <EditorSettings />}
-            <div className='editor__canvas'>
+            <div className='flex flex-col justify-between mb-12 border-b border-solid border-[#dcdcdc] w-full'>
                 {current === "MEDIA" && <MediaControl />}
                 {current === "MEDIA" && <MediaCanvas />}
                 {current !== "MEDIA" && <Canvas />} 

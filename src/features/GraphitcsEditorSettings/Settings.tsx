@@ -18,6 +18,8 @@ const f1 = require("../../assets/editor-templates/filter1.svg")
 const f2 = require("../../assets/editor-templates/filter2.svg")
 const f3 = require("../../assets/editor-templates/filter3.svg")
 
+import { twMerge } from "tailwind-merge";
+
 export const MediaControl: React.FC = () => {
     const isEdit = useSelector((state: any) => state.isEditReducer.isEdit)
     const dispatch = useDispatch()
@@ -26,20 +28,20 @@ export const MediaControl: React.FC = () => {
         dispatch({type: "EDITOR", payload: !isEdit})
     }
     return(
-        <div className="editor__canvas_media-control">
-            <div className="first-flex">
-                <div className="nav"> <img src={arrow} alt="back" /><img src={arrow2} alt="next" /> </div>
-                <ul className="setting">
-                    <li className={`item ${isEdit && 'active'}`} onClick={handler}>Редактировать</li>
-                    <li className={`item`}>Повернуть</li>
-                    <li className={`item`}>Обрезать</li>
+        <div className="flex justify-between border-b border-solid border-[#dcdcdc]">
+            <div className="my-5 mx-6 flex ">
+                <div className="flex mr-5"> <img className="mr-5" src={arrow} alt="back" /><img src={arrow2} alt="next" /> </div>
+                <ul className="p-0 flex ">
+                    <li className={twMerge(`py-0 px-1 ml-8 corsor-pointer`,isEdit && 'bg-[#F5F5F5')} onClick={handler}>Редактировать</li>
+                    <li className="py-0 px-1 ml-8 corsor-pointer">Повернуть</li>
+                    <li className="py-0 px-1 ml-8 corsor-pointer">Обрезать</li>
                 </ul>
             </div>
-            <div className="second-flex">
-                <ul className="setting">
-                    <li className="item">Расположение</li>
-                    <li className="item"> <img src={window} alt="window" /> </li>
-                    <li className="item"> <img src={basket} alt="basket" /> </li>
+            <div className="my-5 mx-6 flex ">
+                <ul className="p-0 flex">
+                    <li className="py-0 px-1 ml-8 corsor-pointer">Расположение</li>
+                    <li className="py-0 px-1 ml-8 corsor-pointer"> <img className="cursor-pointer" src={window} alt="window" /> </li>
+                    <li className="py-0 px-1 ml-8 corsor-pointer"> <img className="cursor-pointer" src={basket} alt="basket" /> </li>
                 </ul>
             </div>
         </div>
@@ -74,41 +76,41 @@ export const Settings: React.FC = () => {
         dispatch({type: "PURPLE"})
     }
     return(
-        <div className="editor__settings_box">
-            <h2>Настройки</h2>
-            <div className="editor__settings_box-settings">
-                <div className="settings__block">
-                    <div className="settings__block_name">
-                        <span>Яркость</span>
-                        <span>{settings.settings.bright}</span>
+        <div className="relative !overflow-y-scroll h-[90vh]">
+            <h2 className="my-6 mx-5 font-normal text-lg">Настройки</h2>
+            <div className="py-6 mx-3 bg-white mt-5 mb-0 mx-22">
+                <div className="mb-5">
+                    <div className="flex justyfy-between">
+                        <span className="text-xs block mb-4 py-1 px-0">Яркость</span>
+                        <span className="text-xs block mb-4 py-1 px-4 border border-solid rounded-xl border-[ #D9D9D9]">{settings.settings.bright}</span>
                     </div>
                     <Nouislider
                     range={{ min: 0, max: 200 }} 
                     start={[settings.settings.bright]} 
                     onChange={handleBrightChange}  connect />
                 </div>
-                <div className="settings__block">
-                    <div className="settings__block_name">
-                        <span>Контраст</span>
-                        <span>{settings.settings.contrast}</span>
+                <div className="mb-5">
+                    <div className="flex justyfy-between">
+                        <span className="text-xs block mb-4 py-1 px-0">Контраст</span>
+                        <span className="text-xs block mb-4 py-1 px-4 border border-solid rounded-xl border-[ #D9D9D9]">{settings.settings.contrast}</span>
                     </div>
                     <Nouislider 
                     onChange={handleContrastChange}
                     range={{ min: 0, max: 200 }} start={[settings.settings.contrast]}  connect />
                 </div>
-                <div className="settings__block">
-                    <div className="settings__block_name">
-                        <span>Насыщенность</span>
-                        <span>{settings.settings.saturation}</span>
+                <div className="mb-5">
+                    <div className="flex justyfy-between">
+                        <span className="text-xs block mb-4 py-1 px-0">Насыщенность</span>
+                        <span className="text-xs block mb-4 py-1 px-4 border border-solid rounded-xl border-[ #D9D9D9]">{settings.settings.saturation}</span>
                     </div>
                     <Nouislider
                     onChange={handleSaturationChange}
                     range={{ min: 0, max: 200 }} start={[settings.settings.saturation]}  connect />
                 </div>
-                <div className="settings__block">
-                    <div className="settings__block_name">
-                        <span>Оттенок</span>
-                        <span>{settings.settings.grayscale}</span>
+                <div className="mb-5">
+                    <div className="flex justyfy-between">
+                        <span className="text-xs block mb-4 py-1 px-0">Оттенок</span>
+                        <span className="text-xs block mb-4 py-1 px-4 border border-solid rounded-xl border-[ #D9D9D9]">{settings.settings.grayscale}</span>
                     </div>
                     <Nouislider
                     onChange={handleGrayscaleChange}
@@ -116,24 +118,24 @@ export const Settings: React.FC = () => {
                 </div>
             </div>
             <h2>Фильтры</h2>
-            <div className="editor__settings_box-filter">
-                <div className="item-slider">
-                    <div className="item" onClick={handleBlueFilter}>
+            <div className="py-6 px-4 rounded-2xl bg-white mx-2 mt-5 mb-0">
+                <div className="flex text-center ">
+                    <div className="cursor-pointer mr-2" onClick={handleBlueFilter}>
                         <img src={f1} alt="Blue" />
                         <span>Blue</span>
                     </div>
-                    <div className="item" onClick={handleGreyscaleFilter}>
+                    <div className="cursor-pointer mr-2" onClick={handleGreyscaleFilter}>
                     <img src={f2} alt="Greyscale" />
                         <span>Greyscale</span>
                     </div>
-                    <div className="item" onClick={handlePurpleFilter}>
+                    <div className="cursor-pointer"  onClick={handlePurpleFilter}>
                     <img src={f3} alt="Purple" />
                         <span>Purple</span>
                     </div>
                 </div>
-                <div className="arrows">
-                    <button>←</button>
-                    <button>→</button>
+                <div className="flex flex-center ">
+                    <button className="m-2">←</button>
+                    <button className="m-2">→</button>
                 </div>
             </div>
         </div>
@@ -150,16 +152,19 @@ export const Templates: React.FC = () => {
 
     return(
 
-            <div className="templates" >
-                <div className="btns">
+            <div className="h-[90vh] flex flex-col ml-2 relative !overflow-y-scroll" >
+                <div className="max-w-[90%]">
                     {mediaBtnsTemplates.map(x => (
-                        <button key={x.name}>{x.name}</button>
+                        <button className="py-2 px-5 bg-white border border-solid border-[#69696a] rounded-xl text-[#69696a] cursor-pointer mt-2 mr-2 mb-0 ml-0" key={x.name}>{x.name}</button>
                     ))}
                 </div>
-                <div className="media" >
+                <div className="flex flex-wrap mt-2 max-w-[90%] h-full " >
                         {mediaTemplates.map(x => (
-                            <div key={x.url} onClick={() => handler(x)}>
-                                <img src={x.url} alt={x.name} />
+                            <div className="w-40 mt-2.5 mr-2 mb-0 ml-0 cursor-pointer duration-500 
+                            max-[1380px]:w-28 
+                            hover:brightness-75
+                            " key={x.url} onClick={() => handler(x)}>
+                                <img className="w-full" src={x.url} alt={x.name} />
                             </div>
                         ))}
                 </div>
@@ -173,9 +178,11 @@ export const MediaAndPhoto: React.FC = () => {
 
     return(
         <>
-        <div className="editor__settings_media-and-photo">
-            <div className="input">
-                <input type="text" placeholder="Поиск шаблонов" />
+        <div>
+            <div className="">
+                <input className="block py-2 px-12 rounded-md mt-8 mr-0 mb-5 ml-2 text-base text-[#7b7c7d]
+                max-[1380px]:w-44 
+                " type="text" placeholder="Поиск шаблонов" />
             </div>
             {isEdit ?
               <Settings />

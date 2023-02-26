@@ -33,7 +33,7 @@ export const Templates = () => {
       {!drop && (
         <div className="flex !max-w-[100%] mx-auto my-0">
           <JoinNavigation />
-          <div className="templates__list">
+          <div>
             <div className="flex flex-wrap mt-4 ml-6 gap-4 ">
               {mainTemp.map((x: any) => (
                 <Temp key={x.id} x={x} onClick={handleTemp} />

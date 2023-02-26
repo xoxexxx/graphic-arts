@@ -16,7 +16,9 @@ body {
   font-family: "Source Sans Pro", sans-serif;
   background: white;
 }
-
+.edutor .active {
+    background-color: rgba(0, 0, 0, 0.2);
+}
 .n-j-list .active, .n-j-list:hover a  { 
   background-color: #EDECEC;
 }
@@ -53,6 +55,27 @@ body {
     a {
       width: 180px !important;
     }
+  }
+}
+.search-settings-editor::before {
+  display: block;
+  position: absolute;
+  transform: translate(20px, 10px);
+  content: " ";
+  width: 20px;
+  height: 20px;
+  background: url("./assets/images/search.svg");
+}
+.search-settings-editor::after {
+  display: block;
+  position: absolute;
+  transform: translate(320px, -48px);
+  content: " ";
+  width: 23px;
+  height: 20px;
+  background: url("./assets/images/camera.svg");
+  @media (max-width: 1380px) {
+      transform: translate(250px, -48px);
   }
 }
 /// SLIDER
