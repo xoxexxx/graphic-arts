@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { JoinNavigation } from "../../components/Menu/JoinNavigation";
 
-import './Projects.less';
 
 export const Projects: React.FC = () => {
     const drop = useSelector((state: boolean | any) => state.dropReducer.drop)
@@ -13,10 +12,10 @@ export const Projects: React.FC = () => {
 
     return(
         <>
-        {!drop && <div className="projects">
+        {!drop && <div className="w-full flex my-0 mx-auto ">
         <JoinNavigation />
-        <div className="projects__box">
-            <h1>Not found 404</h1>
+        <div className="flex justify-center items-center w-full my-0 mx-6">
+            <h1 className="text-center text[#000000]/60 font-medium">Not found 404</h1>
         </div>
     </div>}
     </>

@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { Stage, Layer, Image } from 'react-konva';
 import useImage from "use-image";
-import "./Canvas.less";
 import Konva from "konva";
 
 export const Canvas = () => {
@@ -43,7 +42,7 @@ export const MediaCanvas = () => {
     window.addEventListener("resize", handleResize, false);
   }, []);
   return (
-    <div className="editor__canvas_media ">
+    <div className="flex items-center justify-center">
        {/* <Stage width={dimensions.width - 410} height={dimensions.height - 105}> */}
        <Stage width={settings.settings.width}
               height={settings.settings.height}>
