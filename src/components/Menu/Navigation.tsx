@@ -14,7 +14,7 @@ export const Navigation: React.FC = () => {
     const isProfile = useSelector((state: boolean | any) => state.profileReducer.isProfile)
 
     const hidden = () => {
-        dispatch({type: "DROP", payload: false})
+        dispatch({type: "DROP_MENU", payload: false})
     }
 
     return(

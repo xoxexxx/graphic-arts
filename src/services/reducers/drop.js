@@ -12,13 +12,13 @@ const initialState = {
 export const dropReducer = (state = initialState, action) => {
 
     switch (action.type) {
-        case "DROP": {
+        case "DROP_MENU": {
             return {
                 ...state,
                 drop: action.payload
             }
         }
-        case "DROP_" : {
+        case "DROP_PROFILE_MENU" : {
             return {
                 ...state,
                 drop_: action.payload

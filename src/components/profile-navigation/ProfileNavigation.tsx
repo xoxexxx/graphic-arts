@@ -9,7 +9,7 @@ export const ProfileNavigation: React.FC = () => {
     const drop = useSelector((state: boolean | any) => state.dropReducer.drop)
     const dispatch = useDispatch()
     const handler = () => {
-        dispatch({type: "DROP", payload: false})
+        dispatch({type: "DROP_MENU", payload: false})
     }
     return(
         <div className="flex justify-between mt-8 min-[1140px]:hidden">

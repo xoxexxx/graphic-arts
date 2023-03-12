@@ -28,7 +28,7 @@ export const GraphicsEditor = () => {
         <div className='editor w-full flex h-screen '>
             <EditorMenu />
             {currentMenu && <EditorSettings />}
-            <div className='flex flex-col justify-between border-b border-solid border-[#dcdcdc] w-full'>
+            <div className='flex flex-col justify-between items-center  w-full'>
                 {current === "MEDIA" && <MediaControl />}
                     <Canvas />
                 {current === "MEDIA" && <Resize />}

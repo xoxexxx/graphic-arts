@@ -20,8 +20,8 @@ export const App: React.FC = () => {
   useEffect(() => {
     if (width) {
       if (width >= 1140) {
-        dispatch({ type: "DROP", payload: false});
-        dispatch({type: "DROP_", payload: false})
+        dispatch({ type: "DROP_MENU", payload: false});
+        dispatch({type: "DROP_PROFILE_MENU", payload: false})
       }
     } 
   }, [width])

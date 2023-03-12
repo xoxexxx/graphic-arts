@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
 const i1 = require("../../assets/images/menu-vector1.svg");
 const i2 = require("../../assets/images/menu-vector2.svg");
@@ -13,12 +13,16 @@ import { twMerge } from "tailwind-merge";
 export const JoinNavigation: React.FC = () => {
     const dispatch = useDispatch()
     const location = useLocation()
+    const navigate = useNavigate()
     const drop_ = useSelector((state: boolean | any) => state.dropReducer.drop_)
     const drop = useSelector((state: boolean | any) => state.dropReducer.drop)
     const isProfile = useSelector((state: boolean | any) => state.profileReducer.isProfile)
     const isLogin = useSelector((state: boolean | any) => state.authReducer.isLogin)
     const hidden = () => {
-        dispatch({type: "DROP_", payload: false})
+        dispatch({type: "DROP_PROFILE_MENU", payload: false})
+    }
+    const handleEditor = () => {
+        return navigate("/editor")
     }
     return(
         <div className={twMerge( `min-w-[280px] max-[1140px]:hidden flex flex-col`, !isLogin && `hidden` || drop_ && 'd-trsfm' || drop && `!block`) }>
@@ -31,7 +35,7 @@ export const JoinNavigation: React.FC = () => {
             </ul>
             <div className={twMerge('flex flex-col', !drop && `hidden`,)}>
                 <button className="rounded-xl corsor-pointer border-none outline-none  py-4 px-0 mt-28"> <img className="-translate-x-2 inline" src={i4} alt="creatiqa-premium" />Creatiqa Premium </button>
-                <button className="rounded-xl corsor-pointer border-none outline-none  py-4 px-0  mt-2.5  bg-[#784ADC] text-white">Создать проект</button>
+                <button onClick={handleEditor} className="rounded-xl corsor-pointer border-none outline-none  py-4 px-0  mt-2.5  bg-[#784ADC] text-white">Создать проект</button>
             </div>
         </div>
     )

@@ -24,6 +24,7 @@ const logo = require("../../assets/images/Logo.svg");
 
 export const Menu: React.FC = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const isLogin = useSelector(
     (state: boolean | any) => state.authReducer.isLogin
   );
@@ -38,14 +39,10 @@ export const Menu: React.FC = () => {
     email: null,
     password: null,
     password2: null,
-    phone: "+799999999",
+    phone: null,
     first_name: null,
   });
   const [popup, setPopup] = useState<IPopup>({ register: false, auth: false });
-
-useEffect(() => {
-
-}, [])
 
   const showRegistrationHandle = () => {
     // document.title = `Creatiqa Регистрация`;
@@ -61,7 +58,7 @@ useEffect(() => {
     setPopup({ register: false, auth: true });
   };
   const dropHandler = () => {
-    dispatch({ type: "DROP", payload: !drop });
+    dispatch({ type: "DROP_MENU", payload: !drop });
   };
   useEffect(() => {
     location.pathname == "/profile"
@@ -69,8 +66,10 @@ useEffect(() => {
       : dispatch({ type: "IS_PROFILE", payload: false });
   }, [location]);
 
-  const goEditor = () => {
-    dispatch({type: "CANVAS_SIZE_DROP", payload: true})
+  const handleEditor = () => {
+    // dispatch({type: "CANVAS_SIZE_DROP", payload: true})
+
+    return navigate('/editor')
   };
 
   return (
@@ -108,7 +107,7 @@ useEffect(() => {
                 <button className="mr-6 w-52 h-11 bg-[#784adc]
                  text-white text-lg font-normal border-none
                   outline-none cursor-pointer rounded-xl" 
-                  onClick={goEditor}>Создать проект</button>
+                  onClick={handleEditor}>Создать проект</button>
                 <Link to="/profile">
                   <img width="50" src={test} alt="photo" />
                 </Link>

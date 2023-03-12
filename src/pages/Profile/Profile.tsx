@@ -22,7 +22,7 @@ export const Profile: React.FC = () => {
 // },[])
 
   const dropHandler = () => {
-    dispatch({type: "DROP_", payload: !drop_})
+    dispatch({type: "DROP_PROFILE_MENU", payload: !drop_})
 }
 
   useEffect(() => {

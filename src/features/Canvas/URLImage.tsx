@@ -2,11 +2,16 @@ import React, { useEffect, useRef, useState } from "react";
 import {  Transformer, Image } from "react-konva";
 import useImage from "use-image";
 import Konva from "konva";
-export default function URLImage({ h,w, url, shapeProps, isSelected, onSelect, onChange }) {
+import { useDispatch, useSelector } from "react-redux";
+;
+export default function URLImage({ i, name, h,w, url, shapeProps, isSelected, onSelect, onChange }) {
+  const dispatch = useDispatch()
   const shapeRef = React.useRef();
   const trRef = React.useRef();
-
   const [image] = useImage(url);
+  //@ts-ignore
+  const filters = useSelector(state => state.canvasReducer.items[i].filters)
+
   const canvas = React.useMemo(() => {
     if (!image) {
       return undefined;
@@ -17,15 +22,13 @@ export default function URLImage({ h,w, url, shapeProps, isSelected, onSelect, o
     el.height = image.height;
 
     const ctx: any = el.getContext("2d");
-    // ctx.filter =
-    //   `brightness(${settings.settings.bright}%) contrast(${settings.settings.contrast}%) saturate(${settings.settings.saturation}%) grayscale(${settings.settings.grayscale}%)`;
+     ctx.filter = `brightness(${filters.brightness}%) contrast(${filters.contrast}%) saturate(${filters.saturate}%) grayscale(${filters.grayscale}%)`;
     ctx.drawImage(image, 0, 0);
     return el;
-  }, [image]);
+  }, [image, filters]);
 
   React.useEffect(() => {
     if (isSelected) {
-      // we need to attach transformer manually
       //@ts-ignore
       trRef.current.nodes([shapeRef.current]);
       //@ts-ignore
@@ -38,22 +41,22 @@ export default function URLImage({ h,w, url, shapeProps, isSelected, onSelect, o
     <>
     <Image
       image={canvas}
-      // filters={[Konva.Filters.HSV]}
-      // hue={110}
-      // saturation={10}
-      // value={100}
-     
+      filters={[Konva.Filters.HSV]}
+      hue={110}
+      saturation={10}
+      value={100}
       onClick={onSelect}
       onTap={onSelect}
       ref={shapeRef}
       {...shapeProps}
       draggable
       onDragEnd={(e) => {
-        onChange({
-          ...shapeProps,
-          x: e.target.x(),
-          y: e.target.y(),
-        });
+        // onChange({
+        //   ...shapeProps,
+        //   x: e.target.x(),
+        //   y: e.target.y(),
+        // });
+        
       }}
       onTransformEnd={(e) => {
         const node = shapeRef.current;
@@ -61,18 +64,14 @@ export default function URLImage({ h,w, url, shapeProps, isSelected, onSelect, o
         const scaleX = node.scaleX();
         //@ts-ignore
         const scaleY = node.scaleY();
-        onChange({
-          ...shapeProps,
-          //@ts-ignore
-          x: node.x(),
-          //@ts-ignore
-          y: node.y(),
-          // set minimal value
-          //@ts-ignore
-          width: Math.max(5, node.width() * scaleX),
-          //@ts-ignore
-          height: Math.max(node.height() * scaleY),
-        });
+        // onChange({
+        //   ...shapeProps,
+        //   x: node.x(),
+        //   y: node.y(),
+        //   width: Math.max(5, node.width() * scaleX),
+        //   height: Math.max(node.height() * scaleY),
+        // });
+        
       }}
       
     />

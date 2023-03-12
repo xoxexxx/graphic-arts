@@ -21,14 +21,15 @@ const f3 = require("../../assets/editor-templates/filter3.svg")
 import { twMerge } from "tailwind-merge";
 
 export const MediaControl: React.FC = () => {
-    const isEdit = useSelector((state: any) => state.isEditReducer.isEdit)
+    //@ts-ignore
+    const isEdit = useSelector((state) => state.isEditReducer.isEdit)
     const dispatch = useDispatch()
     
     const handler = () => {
         dispatch({type: "EDITOR", payload: !isEdit})
     }
     return(
-        <div className="flex justify-between border-b border-solid border-[#dcdcdc]">
+        <div className="flex justify-between border-b border-solid border-[#dcdcdc] w-full">
             <div className="my-5 mx-6 flex ">
                 <div className="flex mr-5"> <img className="mr-5" src={arrow} alt="back" /><img src={arrow2} alt="next" /> </div>
                 <ul className="p-0 flex ">
@@ -48,30 +49,25 @@ export const MediaControl: React.FC = () => {
 
 export const Settings: React.FC = () => {
    const dispatch = useDispatch()
-   const settings = useSelector((state: any) => state.canvasMediaSettingsReducer)
-
-
+   //@ts-ignore
+const idx = useSelector((state) => state.canvasReducer.currentID)
+ 
+//@ts-ignore
+const filters = useSelector(state => state.canvasReducer.items[idx].filters)
+//@ts-ignore
+const items = useSelector((state) => state.canvasReducer.items)
+//@ts-ignore
     const handleBrightChange = (e) => {
-        dispatch({type: 'ЯРКОСТЬ', payload: Math.round(e[0])})
+        dispatch({type: "ITEM_BRIGHTNESS", payload: Number(e[0])})
     }
     const handleContrastChange = (e) => {
-        dispatch({type: "КОНТРАСТ", payload: Math.round(e[0])})
+        dispatch({type: "ITEM_CONTRAST", payload: Number(e[0])})
     }
-    const handleSaturationChange = (e) => {
-        dispatch({type: "НАСЫЩЕННОСТЬ", payload: Math.round(e[0])})
+    const handleSaturateChange = (e) => {
+        dispatch({type: "ITEM_SATURATE", payload: Number(e[0])})
     }
     const handleGrayscaleChange = (e) => {
-        dispatch({type: "ОТТЕНОК", payload: Math.round(e[0])})
-    }
-
-    const handleBlueFilter = () => {
-        dispatch({type: "BLUE"})
-    }
-    const handleGreyscaleFilter = () => {
-        dispatch({type: "GREYSCALE"})
-    }
-    const handlePurpleFilter = () => {
-        dispatch({type: "PURPLE"})
+        dispatch({type: "ITEM_GRAYSCALE", payload: Number(e[0])})
     }
     return(
         <div className="relative !overflow-y-scroll h-[90vh]">
@@ -80,44 +76,44 @@ export const Settings: React.FC = () => {
                 <div className="mb-5">
                     <div className="flex justyfy-between">
                         <span className="text-xs block mb-4 py-1 px-0">Яркость</span>
-                        <span className="text-xs block mb-4 py-1 px-4 border border-solid rounded-xl border-[ #D9D9D9]">{settings.settings.bright}</span>
+                        <span className="text-xs block mb-4 py-1 px-4 border border-solid rounded-xl border-[ #D9D9D9]">{filters.brightness}</span>
                     </div>
                     <Nouislider
                     range={{ min: 0, max: 200 }} 
-                    start={[settings.settings.bright]} 
-                    onChange={handleBrightChange}  connect />
+                    start={[100]} 
+                    onChange={ handleBrightChange}  connect />
                 </div>
                 <div className="mb-5">
                     <div className="flex justyfy-between">
                         <span className="text-xs block mb-4 py-1 px-0">Контраст</span>
-                        <span className="text-xs block mb-4 py-1 px-4 border border-solid rounded-xl border-[ #D9D9D9]">{settings.settings.contrast}</span>
+                        <span className="text-xs block mb-4 py-1 px-4 border border-solid rounded-xl border-[ #D9D9D9]">{filters.contrast}</span>
                     </div>
                     <Nouislider 
                     onChange={handleContrastChange}
-                    range={{ min: 0, max: 200 }} start={[settings.settings.contrast]}  connect />
+                    range={{ min: 0, max: 200 }} start={[100]}  connect />
                 </div>
                 <div className="mb-5">
                     <div className="flex justyfy-between">
                         <span className="text-xs block mb-4 py-1 px-0">Насыщенность</span>
-                        <span className="text-xs block mb-4 py-1 px-4 border border-solid rounded-xl border-[ #D9D9D9]">{settings.settings.saturation}</span>
+                        <span className="text-xs block mb-4 py-1 px-4 border border-solid rounded-xl border-[ #D9D9D9]">{filters.saturate}</span>
                     </div>
                     <Nouislider
-                    onChange={handleSaturationChange}
-                    range={{ min: 0, max: 200 }} start={[settings.settings.saturation]}  connect />
+                    onChange={handleSaturateChange}
+                    range={{ min: 0, max: 200 }} start={[100]}  connect />
                 </div>
                 <div className="mb-5">
                     <div className="flex justyfy-between">
                         <span className="text-xs block mb-4 py-1 px-0">Оттенок</span>
-                        <span className="text-xs block mb-4 py-1 px-4 border border-solid rounded-xl border-[ #D9D9D9]">{settings.settings.grayscale}</span>
+                        <span className="text-xs block mb-4 py-1 px-4 border border-solid rounded-xl border-[ #D9D9D9]">{filters.grayscale}</span>
                     </div>
                     <Nouislider
                     onChange={handleGrayscaleChange}
-                    range={{ min: 0, max: 100 }} start={[settings.settings.grayscale]}  connect />
+                    range={{ min: 0, max: 100 }} start={[0]}  connect />
                 </div>
             </div>
             <h2>Фильтры</h2>
             <div className="py-6 px-4 rounded-2xl bg-white mx-2 mt-5 mb-0">
-                <div className="flex text-center ">
+                {/* <div className="flex text-center ">
                     <div className="cursor-pointer mr-2" onClick={handleBlueFilter}>
                         <img src={f1} alt="Blue" />
                         <span>Blue</span>
@@ -130,7 +126,7 @@ export const Settings: React.FC = () => {
                     <img src={f3} alt="Purple" />
                         <span>Purple</span>
                     </div>
-                </div>
+                </div> */}
                 <div className="flex flex-center ">
                     <button className="m-2">←</button>
                     <button className="m-2">→</button>
@@ -143,19 +139,22 @@ export const Settings: React.FC = () => {
 export const Templates: React.FC = () => {
     const dispatch = useDispatch()
     const handler = (x) => {
-        console.log(x)
         dispatch({type: "ADD_CANVAS_ITEM", payload: {
             id: x.name,
             type: 'image',
             url: x.url,
-            size: {
-                w: x.w,
-                h: x.h
-            },
             x: 0,
             y: 0,
             width: x.w,
-            height: x.h
+            height: x.h,
+            filters: {
+                brightness: 100,
+                contrast: 100,
+                saturate: 100,
+                grayscale: 0,
+
+
+            }
         }})
     }
 

@@ -20,25 +20,22 @@ export const Auth: React.FC<{popup: IPopup | any, handlers: any }> = ({popup, ha
 
         dispatch({type: "FETCH_AUTH_REQUEST"})
         popup[1](false)
-        return navigate('/home')
-//         axios({
-// //             method: 'POST',
-// //             url: 'http://217.25.88.184:8080/authusers/',
-// //             data: usr,
-
-//             method: 'PUT',
-//             url: 'http://217.25.88.184:8080/api-authlogin/?next=/auth',
+        
+        axios({
+//             method: 'POST',
+//             url: 'http://217.25.88.184:8080/authusers/',
 //             data: usr,
-//             xsrfCookieName: "XSRF-TOKEN",
-//             xsrfHeaderName: "X-CSRFToken",
-//             headers: {
-//               'Content-Type': 'application/json',
-//             }
 
-//         }).then(res => {
-//             dispatch({type: "FETCH_AUTH_REQUEST"})
-            
-//         }).catch(() => dispatch({type: "FETCH_AUTH_ERROR"}))
+            method: 'PUT',
+            url: 'http://217.25.88.184:8080/api-authlogin/?next=/auth',
+            data: usr,
+            headers: {
+              'Content-Type': 'application/json',
+            }
+
+        }).then(res => {
+            dispatch({type: "FETCH_AUTH_REQUEST"})  
+        }).catch(() => dispatch({type: "FETCH_AUTH_ERROR"}))
       }
 
 
