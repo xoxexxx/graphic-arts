@@ -14,7 +14,7 @@ export const GraphicsEditor = () => {
      // @ts-ignore
     const current = useSelector((state) => state.editorReducer.current)
      // @ts-ignore
-    const isLogin = useSelector((state) => state.authReducer.isLogin)
+    const {isLogin} = useSelector((state) => state.auth)
     
     const location = useLocation()
     const navigate = useNavigate()

@@ -2,18 +2,22 @@ import React, { useCallback, useEffect } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
-import { Home } from "./pages/Home/Home";
-import { Main } from "./pages/Main/Main";
-import { Profile } from "./pages/Profile/Profile";
-import { Templates } from "./pages/Templates/Templates";
-import { Projects } from "./pages/Projects/Projects";
-import { GraphicsEditor } from "./pages/GraphicsEditor/GraphicsEditor";
+import { authSelector } from "./services/selectors/authSelector";
+
+import { Home } from "./pages/Home";
+import { Main } from "./pages/Main";
+import { Profile } from "./pages/Profile";
+import { Templates } from "./pages/Templates";
+import { Projects } from "./pages/Projects";
+import { GraphicsEditor } from "./pages/GraphicsEditor";
 import { Menu } from "./features/Menu/Menu";
 
 import { useResizeDetector } from 'react-resize-detector';
 
 export const App: React.FC = () => {
-  const login = useSelector((state: boolean | any )=> state.authReducer.isLogin)
+  //@ts-ignore
+  const {isLogin} = useSelector(state => state.auth)
+
   const dispatch = useDispatch()
  
   const { width, ref } = useResizeDetector()
@@ -27,7 +31,7 @@ export const App: React.FC = () => {
   }, [width])
   const navigate = useNavigate();
   useEffect(() => {
-    if (login) {
+    if (isLogin) {
       navigate("/home")
     }
   }, [])

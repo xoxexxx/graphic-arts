@@ -2,11 +2,10 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 
-import {TemplatesHover} from '../../components/templates-hover/TempHover';
 
 export const Home = () => {
    // @ts-ignore
-  const drop = useSelector((state) => state.dropReducer.drop);
+  const drop = useSelector((state) => state.drop);
 
 //   useEffect(() => {
 //     document.title = `Creatiqa`
@@ -15,10 +14,9 @@ export const Home = () => {
 
   return (
     <>
-      {!drop && (
+      {!drop.dropMenu && (
         <div className=" 
         max-w-screen-lg ml-auto mr-auto mt-12 mb-12">
-          <TemplatesHover />
           <div className="
           flex px-12 
           max-[1040px]:flex-col">
