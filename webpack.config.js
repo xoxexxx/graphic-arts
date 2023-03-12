@@ -18,8 +18,10 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx", ".json", ".png", ".jpg", ".svg"],
     alias: {
-      "@image": path.resolve(__dirname, "./src/image"),
-      "@components": path.relative(__dirname, "./src/components"),
+      "@pages": path.resolve(__dirname, "./src/pages"),
+      "@features": path.relative(__dirname, "./src/features"),
+      "@components":  path.relative(__dirname, "./src/components"),
+      
     },
   },
   optimization: {

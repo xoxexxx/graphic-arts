@@ -1,4 +1,4 @@
-import React, { SetStateAction, useState } from 'react';
+import React, { useState } from 'react';
 
 import { Link } from 'react-router-dom';
 import {IPopup }from '../Menu/types'

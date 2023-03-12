@@ -14,7 +14,7 @@ export const GraphicsEditor = () => {
      // @ts-ignore
     const current = useSelector((state) => state.editorReducer.current)
      // @ts-ignore
-    const isLogin = useSelector((state) => state.authReducer.isLogin)
+    const {isLogin} = useSelector((state) => state.auth)
     
     const location = useLocation()
     const navigate = useNavigate()
@@ -28,7 +28,7 @@ export const GraphicsEditor = () => {
         <div className='editor w-full flex h-screen '>
             <EditorMenu />
             {currentMenu && <EditorSettings />}
-            <div className='flex flex-col justify-between border-b border-solid border-[#dcdcdc] w-full'>
+            <div className='flex flex-col justify-between items-center  w-full'>
                 {current === "MEDIA" && <MediaControl />}
                     <Canvas />
                 {current === "MEDIA" && <Resize />}

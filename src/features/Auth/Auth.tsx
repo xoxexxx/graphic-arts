@@ -4,9 +4,10 @@ import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { IPopup } from '../Menu/types';
 
+import { fetchAuthRequest, fetchAuthSuccess, fetchAuthError } from '../../services/reducers/authReducer';
 const closeSVG = require('../../assets/images/close.svg')
 
-export const Auth: React.FC<{popup: IPopup | any, handlers: any }> = ({popup, handlers}) => {
+export const Auth: React.FC<{popup: IPopup | any, handlers}> = ({popup, handlers}) => {
     const dispatch = useDispatch()
     const [usr, setUsr] = useState<any>({
         email: "",
@@ -14,31 +15,13 @@ export const Auth: React.FC<{popup: IPopup | any, handlers: any }> = ({popup, ha
       })
     const close = handlers?.[0]
     const showRegistration = handlers?.[1]
+
     const navigate = useNavigate()
       const submit = (e:  React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
-
-        dispatch({type: "FETCH_AUTH_REQUEST"})
+        dispatch(fetchAuthRequest())
         popup[1](false)
-        return navigate('/home')
-//         axios({
-// //             method: 'POST',
-// //             url: 'http://217.25.88.184:8080/authusers/',
-// //             data: usr,
-
-//             method: 'PUT',
-//             url: 'http://217.25.88.184:8080/api-authlogin/?next=/auth',
-//             data: usr,
-//             xsrfCookieName: "XSRF-TOKEN",
-//             xsrfHeaderName: "X-CSRFToken",
-//             headers: {
-//               'Content-Type': 'application/json',
-//             }
-
-//         }).then(res => {
-//             dispatch({type: "FETCH_AUTH_REQUEST"})
-            
-//         }).catch(() => dispatch({type: "FETCH_AUTH_ERROR"}))
+        return navigate("/home")
       }
 
 

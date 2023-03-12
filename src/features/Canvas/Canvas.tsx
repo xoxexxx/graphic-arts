@@ -1,12 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Stage, Layer, Image } from 'react-konva';
-import useImage from "use-image";
-import Konva from "konva";
-import { useMemo } from "react";
 import URLImage from "./URLImage";
 
 export const Canvas = () => {
+   //@ts-ignore
+  const idx = useSelector((state) => state.canvasReducer.currentItemID)
+
+  const dispatch = useDispatch()
   // @ts-ignore
   const canvas = useSelector((state) => state.canvasReducer)
  // @ts-ignore
@@ -19,25 +20,33 @@ export const Canvas = () => {
       selectShape(null);
     }
   };
-  console.log(canvas)
-  return <div  className="flex items-center justify-center">
+
+
+
+  return <div  className="flex items-center justify-center mt-10">
     <Stage width={canvas.w} height={canvas.h} onMouseDown={checkDeselect}
       onTouchStart={checkDeselect}>
       <Layer>
            {canvas.items && canvas.items.map((x, i) => (
             <URLImage 
+            name={x.id}
+            i={i}
             key={i}
             shapeProps={x}
             isSelected={x.id === selectedId}
-            onSelect={() => {
+            //@ts-ignore
+            onSelect={(e) => {
+              dispatch({type: "SELECTED", payload: i})
               selectShape(x.id);
-            }}
+            }} 
             onChange={(newAttrs) => {
-              const rects = rectangles.slice();
-              x[i] = newAttrs;
-              setRectangles(rects);
+              dispatch({type: "SELECTED", payload: i})
+              // const rects = rectangles.slice();
+              // x[i] = newAttrs;
+              // setRectangles(rects);
+              
             }}
-            url={x.url} h={x.size.h} w={x.size.w}/>
+            url={x.url} h={x.h} w={x.w}/>
            ))}
       </Layer>
     </Stage>

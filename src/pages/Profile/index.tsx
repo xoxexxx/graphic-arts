@@ -2,18 +2,18 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { DropMenu } from "../../components/drop-menu/drop-menu";
+import { Burger } from "../../components/Burger/Burger";
 import { JoinNavigation } from "../../components/Menu/JoinNavigation";
 import { ProfileBlock } from "../../features/Profile/ProfileBlock";
 
 export const Profile: React.FC = () => {
 
    // @ts-ignore
-  const isProfile = useSelector((state) => state.profileReducer.isProfile)
+  const {isProfile} = useSelector((state) => state.check)
    // @ts-ignore
-  const drop_ = useSelector((state) => state.dropReducer.drop_)
+  const {dropProfileMenu} = useSelector((state) => state.drop)
    // @ts-ignore
-  const isLogin = useSelector((state) => state.authReducer.isLogin)
+  const {isLogin} = useSelector((state) => state.auth)
   
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -22,7 +22,7 @@ export const Profile: React.FC = () => {
 // },[])
 
   const dropHandler = () => {
-    dispatch({type: "DROP_", payload: !drop_})
+    dispatch({type: "DROP_PROFILE_MENU", payload: !dropProfileMenu})
 }
 
   useEffect(() => {
@@ -33,7 +33,7 @@ export const Profile: React.FC = () => {
 
   return (
     <div className="max-w-full my-0 mx-auto flex">
-      <DropMenu onClick={dropHandler} />
+      <Burger onClick={dropHandler} />
       <div className="max-[1140px]:hidden">
       <JoinNavigation />
       </div>

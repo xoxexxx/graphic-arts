@@ -8,7 +8,7 @@ import vkontakte from '../../assets/images/vkontakte.svg'
 import facebook from '../../assets/images/facebook.svg'
 import instagram from '../../assets/images/instagram.svg'
 import youtube from '../../assets/images/youtube.svg'
-export const mainTemp = [
+export const mainTemplate = [
     {
         id: 1,
         name: 'setting-size',
@@ -55,7 +55,7 @@ export const mainTemp = [
 ]
 
 
-export const socialTemp =
+export const socialTemplate =
 {
     name: 'SOCIAL',
     value: "Социальные сети",
@@ -158,7 +158,7 @@ export const lastDesign = [
         img: '',
     },
 ]
-export const businessTemp =
+export const businessTemplate =
 {
     name: 'BUSINESS',
     value: "Бизнес",
@@ -200,7 +200,7 @@ export const businessTemp =
         },       
     ]
 }
-export const printTemp =
+export const printTemplate =
 {
     name: 'PRINT',
     value: "Печать",
@@ -242,7 +242,7 @@ export const printTemp =
         },       
     ]
 }
-export const standartTemp =
+export const standartTemplate =
 {
     name: 'STANDART',
     value: "Стандартные",
@@ -284,7 +284,7 @@ export const standartTemp =
         },       
     ]
 }
-export const marketingTemp =
+export const marketingTemplate =
 {
     name: 'MARKETING',
     value: "Маркетинг",

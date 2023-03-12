@@ -1,15 +1,17 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
+
+import { useDispatch } from "react-redux";
+import { dropMenu } from "../../services/reducers/dropReducer";
+
 const photo = require('../../assets/images/test.png')
 const arrow = require('../../assets/images/right-arrow.svg')
 
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 export const ProfileNavigation: React.FC = () => {
-    const drop = useSelector((state: boolean | any) => state.dropReducer.drop)
     const dispatch = useDispatch()
     const handler = () => {
-        dispatch({type: "DROP", payload: false})
+        dispatch(dropMenu(false))
     }
     return(
         <div className="flex justify-between mt-8 min-[1140px]:hidden">
