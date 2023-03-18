@@ -10,9 +10,9 @@ import { MediaControl } from '../../features/GraphitcsEditorSettings/Settings'
 
 export const GraphicsEditor = () => {
      // @ts-ignore
-    const currentMenu = useSelector((state) => state.editorReducer.currentMenu)
+    const currentMenu = useSelector((state) => state.menuEditor.currentMenu)
      // @ts-ignore
-    const current = useSelector((state) => state.editorReducer.current)
+    const current = useSelector((state) => state.menuEditor.current)
      // @ts-ignore
     const {isLogin} = useSelector((state) => state.auth)
     

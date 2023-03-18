@@ -1,4 +1,4 @@
-import { createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import {createSlice} from '@reduxjs/toolkit';
 
 const initialState = {
     isProfile: false,

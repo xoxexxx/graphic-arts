@@ -1,12 +1,11 @@
-import React, { useMemo, useRef, useState } from "react";
+import React from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import {mediaBtnsTemplates} from '../../utils/editor/templates';
-import { mediaTemplates } from "../../utils/editor/templates";
+import {mediaBtnsTemplates} from '../../utils/objects/editor/templates';
+import { mediaTemplates } from "../../utils/objects/editor/templates";
 
 import Nouislider from "nouislider-react";
-
 
 const arrow = require('../../assets/images/e-arrow.svg');
 const arrow2 = require('../../assets/images/e-arrow2.svg');
@@ -168,7 +167,7 @@ export const Templates: React.FC = () => {
                     ))}
                 </div>
                 <div className="flex flex-wrap mt-2 max-w-[90%] h-full " >
-                        {mediaTemplates.map(x => (
+                        {mediaTemplates.map((x: any ) => (
                             <div className="w-40 mt-2.5 mr-2 mb-0 ml-0 cursor-pointer duration-500 
                             max-[1380px]:w-28 
                             hover:brightness-75

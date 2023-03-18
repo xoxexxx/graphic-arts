@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { socialTemplate, businessTemplate, printTemplate, standartTemplate, marketingTemplate } from "../../utils/templates/main-templates";
+import { socialTemplate, businessTemplate, printTemplate, standartTemplate, marketingTemplate } from "../../utils/objects/templates";
 const initialState = {
     data: null
 }

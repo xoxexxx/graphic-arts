@@ -1,16 +1,18 @@
 import React, { useEffect } from "react";
 import { Template } from "../../components/template/Template";
 import { JoinNavigation } from "../../components/Menu/JoinNavigation";
-import { mainTemplate } from "../../utils/templates/main-templates";
+import { mainTemplate } from "../../utils/objects/templates";
 import { useSelector, useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import { handleTemplate } from "../../utils/func/handlers";
 
-export const Templates = () => {
+export const Templates: React.FC = () => {
     
   const dispatch = useDispatch()
-    
+  const navigate = useNavigate()
+  const location = useLocation()
+
   // @ts-ignore
   const {dropMenu} = useSelector((state) => state.drop);
    // @ts-ignore
@@ -18,8 +20,7 @@ export const Templates = () => {
    // @ts-ignore
   const templateList = useSelector((state) => state.template.data)
 
-  const navigate = useNavigate()
-  const location = useLocation()
+  
 
     useEffect(() => {
         if (!isLogin) {
@@ -28,7 +29,7 @@ export const Templates = () => {
     }, [location])
   
     const handleEditor = (x) => {
-      console.log(templateList, x)
+      
     }
   return (
     <>
