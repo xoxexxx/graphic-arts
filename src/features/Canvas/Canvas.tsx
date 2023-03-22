@@ -5,11 +5,11 @@ import URLImage from "./URLImage";
 
 export const Canvas = () => {
    //@ts-ignore
-  const idx = useSelector((state) => state.canvasReducer.currentItemID)
+  const idx = useSelector((state) => state.canvas.currentItemID)
 
   const dispatch = useDispatch()
   // @ts-ignore
-  const canvas = useSelector((state) => state.canvasReducer)
+  const canvas = useSelector((state) => state.canvas)
  // @ts-ignore
   const [rectangles, setRectangles] = React.useState(canvas.items);
   const [selectedId, selectShape] = React.useState(null);

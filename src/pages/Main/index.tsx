@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { JoinNavigation } from "../../components/Menu/JoinNavigation";
 import { Template } from "../../components/template/Template";
-import { mainTemplate, lastDesign } from "../../utils/templates/main-templates";
+import { mainTemplate, lastDesign } from "../../utils/objects/templates";
 
 import { handleTemplate as handleTemplateFunc } from "../../utils/func/handlers";
 export const Main = () => {
