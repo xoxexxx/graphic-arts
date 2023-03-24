@@ -3,7 +3,7 @@ import { createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit';
 const initialState = {
     isLoading: false,
     hasError: false,
-    isLogin: false,
+    isLogin: true,
 }
 
 const authSlice = createSlice({
