@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const autoprefixer = require('autoprefixer');
+const autoprefixer = require("autoprefixer");
 
 module.exports = {
   context: path.resolve(__dirname, "src"),
@@ -20,8 +20,7 @@ module.exports = {
     alias: {
       "@pages": path.resolve(__dirname, "./src/pages"),
       "@features": path.relative(__dirname, "./src/features"),
-      "@components":  path.relative(__dirname, "./src/components"),
-      
+      "@components": path.relative(__dirname, "./src/components"),
     },
   },
   optimization: {
@@ -65,21 +64,19 @@ module.exports = {
         test: /\.json$/,
         use: "json-loader",
       },
-      
+
       {
         test: /\.less$/,
-        use: [                    
+        use: [
           MiniCssExtractPlugin.loader,
-          { loader: 'css-loader' },
+          { loader: "css-loader" },
           {
-              loader: 'postcss-loader',
-              
+            loader: "postcss-loader",
           },
           {
-              loader: 'less-loader',
-              
-          } 
-      ]
+            loader: "less-loader",
+          },
+        ],
       },
       {
         test: /\.(png|jpg|svg|gif)$/,
