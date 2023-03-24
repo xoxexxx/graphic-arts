@@ -1,8 +1,16 @@
 import {createSlice} from '@reduxjs/toolkit';
 
-const initialState = {
+
+export interface IState {
+    isProfile: boolean,
+    isEditor: boolean,
+    isEditFilters: boolean, 
+}
+
+const initialState: IState = {
     isProfile: false,
     isEditor: false,
+    isEditFilters: false,
 }
 
 const checkURLSlice = createSlice({
@@ -20,9 +28,16 @@ const checkURLSlice = createSlice({
                 ...state,
                 isEditor: action.payload
             }
-        }
+        },
+
+    filterEditHandle: (state, action) => {
+        return {
+            ...state,
+            isEditFilters: action.payload
+        }  
+    }   
     }
 })
 
-export const {isProfile, isEditor} = checkURLSlice.actions
+export const {isProfile, isEditor, filterEditHandle} = checkURLSlice.actions
 export const checkReducer = checkURLSlice.reducer
