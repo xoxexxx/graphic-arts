@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Stage, Layer, Image } from "react-konva";
 import URLImage from "./URLImage";
-import { IItem, selectedItem } from "../../services/reducers/canvasReducer";
+import { selectIndex, handleChangeItem, IItem, selectedItem } from "../../services/reducers/canvasReducer";
 import useImage from "use-image";
 import Konva from "konva";
 
@@ -15,18 +15,16 @@ export const Canvas = () => {
   const canvas = useSelector((state) => state.canvas);
   const { items }: { items: IItem[] } = canvas;
   // @ts-ignore
-  const [rectangles, setRectangles] = React.useState(canvas.items);
   const [selectedId, selectShape] = React.useState<number | string | null>(
     null
   );
-  console.log(items, 'items')
   const checkDeselect = (e) => {
     const clickedOnEmpty = e.target === e.target.getStage();
     if (clickedOnEmpty) {
-      selectShape(null);
+     selectShape(null);
     }
   };
-
+  console.log("canvasRender")
   return (
     <div className="flex items-center justify-center mt-10">
       <Stage
@@ -38,31 +36,25 @@ export const Canvas = () => {
         <Layer>
           {items &&
             items.map((x, i) => (
-              <>
-             { console.log(x, 'xxxxx')}
               <URLImage
-                
-                name={x.id}
+                key={x.id}
                 url={x.url}
-                h={x.h}
-                w={x.w}
                 i={i}
-                key={i}
+                id={x.id}
                 shapeProps={x}
                 isSelected={x.id === selectedId}
                 //@ts-ignore
+                onClick={() => {
+                  dispatch(selectedItem(i));  
+                  dispatch(selectIndex()) 
+                }}
                 onSelect={(e) => {
-                  dispatch(selectedItem(i));
-                  selectShape(x.id);
+                  selectShape(x.id)      
                 }}
                 onChange={(newAttrs) => {
-                  dispatch(selectedItem(i));
-                  // const rects = rectangles.slice();
-                  // x[i] = newAttrs;
-                  // setRectangles(rects);
+                  dispatch(handleChangeItem(newAttrs))
                 }}
               />
-              </>
             ))}
         </Layer>
       </Stage>

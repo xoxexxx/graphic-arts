@@ -23,6 +23,7 @@ interface IState {
   w: number;
   h: number;
   currentID: number | null;
+  counts: number
 }
 
 const initialState: IState = {
@@ -30,6 +31,7 @@ const initialState: IState = {
   w: 800,
   h: 500,
   currentID: null,
+  counts: 0
 };
 
 const canvasSlice = createSlice({
@@ -47,6 +49,20 @@ const canvasSlice = createSlice({
         ...state,
         currentID: action.payload,
       };
+    },
+    selectIndex: (state) => {
+      if (!state.currentID && state.currentID !== 0) return
+      return {
+        ...state,
+        items: [ ...state.items.slice(0, state.currentID),  ...state.items.slice(state.currentID + 1), state.items[state.currentID],]
+      }
+    },
+    handleChangeItem: (state, action) => {
+      if (!state.currentID && state.currentID !== 0) return
+      return  {
+        ...state,
+        items: [...state.items.slice(0, state.currentID), action.payload, ...state.items.slice(state.currentID + 1)]
+      }
     },
 
     canvasWidth: (state, action) => {
@@ -133,11 +149,14 @@ const canvasSlice = createSlice({
 });
 
 export const {
+  selectIndex,
   addCanvasItem,
   selectedItem,
+  handleChangeItem,
   changeBrightness,
   changeContrast,
   changeSaturate,
   changeGrayscale,
+
 } = canvasSlice.actions;
 export const canvasReducer = canvasSlice.reducer;

@@ -1,28 +1,31 @@
-import React from "react";
+import React, { useMemo, useRef } from "react";
 import { Transformer, Image } from "react-konva";
 import useImage from "use-image";
 import Konva from "konva";
-import { useDispatch, useSelector } from "react-redux";
+import {  useDispatch, useSelector } from "react-redux";
+
+
 export default function URLImage({
+  id,
   i,
   url,
-  name,
-  h,
-  w,
   shapeProps,
   isSelected,
   onSelect,
+  onClick,
   onChange,
 }) {
-  const dispatch = useDispatch();
-  console.log(url, w, 'url')
-  const shapeRef = React.useRef();
-  const trRef = React.useRef();
+  const dispatch = useDispatch()
+  const shapeRef = useRef();
+  const trRef = useRef();
   const [image] = useImage(url);
   //@ts-ignore
   const filters = useSelector((state) => state.canvas.items[i].filters);
-  
-  const canvas = React.useMemo(() => {
+  //@ts-ignore
+  const items = useSelector((state) => state.canvas.items)
+  //@ts-ignore
+  const counts = useSelector((state) => state.canvas.counts)
+  const canvas = useMemo(() => {
     if (!image) {
       return undefined;
     }
@@ -46,6 +49,7 @@ export default function URLImage({
     }
   }, [isSelected]);
 
+  console.log('render')
   return (
     <>
       <Image
@@ -54,31 +58,38 @@ export default function URLImage({
         hue={110}
         saturation={10}
         value={100}
-        onClick={onSelect}
+        onClick={() => {
+          onClick()
+          onSelect()
+        }}
         onTap={onSelect}
         ref={shapeRef}
         {...shapeProps}
         draggable
+        onDragStart={onClick}
         onDragEnd={(e) => {
-          // onChange({
-          //   ...shapeProps,
-          //   x: e.target.x(),
-          //   y: e.target.y(),
-          // });
+          onChange({
+            ...shapeProps,
+            x: e.target.x(),
+            y: e.target.y(),
+          });
         }}
         onTransformEnd={(e) => {
-          const node = shapeRef.current;
-          //@ts-ignore
+          const node: any = shapeRef.current;
           const scaleX = node.scaleX();
-          //@ts-ignore
           const scaleY = node.scaleY();
-          // onChange({
-          //   ...shapeProps,
-          //   x: node.x(),
-          //   y: node.y(),
-          //   width: Math.max(5, node.width() * scaleX),
-          //   height: Math.max(node.height() * scaleY),
-          // });
+          
+          node.scaleX(1);
+          node.scaleY(1);
+          onChange({
+            ...shapeProps,
+            x: Math.round(node.x()),
+            y: Math.round(node.y()),
+
+            //set minimal value
+            width: Math.round(node.width() * scaleX),
+            height: Math.round(node.height() * scaleY),
+          });
         }}
       />
 
@@ -87,6 +98,7 @@ export default function URLImage({
           //@ts-ignore
           ref={trRef}
           boundBoxFunc={(oldBox, newBox) => {
+            console.log(oldBox, newBox)
             if (newBox.width < 5 || newBox.height < 5) {
               return oldBox;
             }
