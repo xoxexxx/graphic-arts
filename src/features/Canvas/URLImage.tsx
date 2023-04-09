@@ -2,11 +2,10 @@ import React, { useMemo, useRef } from "react";
 import { Transformer, Image } from "react-konva";
 import useImage from "use-image";
 import Konva from "konva";
-import {  useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 
 export default function URLImage({
-  id,
   i,
   url,
   shapeProps,
@@ -15,7 +14,6 @@ export default function URLImage({
   onClick,
   onChange,
 }) {
-  const dispatch = useDispatch()
   const shapeRef = useRef();
   const trRef = useRef();
   const [image] = useImage(url);
@@ -49,7 +47,6 @@ export default function URLImage({
     }
   }, [isSelected]);
 
-  console.log('render')
   return (
     <>
       <Image
@@ -66,8 +63,12 @@ export default function URLImage({
         ref={shapeRef}
         {...shapeProps}
         draggable
-        onDragStart={onClick}
+        onDragStart={() => {
+          onClick()
+          onSelect()
+        }}
         onDragEnd={(e) => {
+          onClick()
           onChange({
             ...shapeProps,
             x: e.target.x(),

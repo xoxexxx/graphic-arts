@@ -24,7 +24,6 @@ export const Canvas = () => {
      selectShape(null);
     }
   };
-  console.log("canvasRender")
   return (
     <div className="flex items-center justify-center mt-10">
       <Stage
@@ -40,7 +39,6 @@ export const Canvas = () => {
                 key={x.id}
                 url={x.url}
                 i={i}
-                id={x.id}
                 shapeProps={x}
                 isSelected={x.id === selectedId}
                 //@ts-ignore

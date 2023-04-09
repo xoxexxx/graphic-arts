@@ -157,6 +157,8 @@ export const {
   changeContrast,
   changeSaturate,
   changeGrayscale,
+  canvasHeight,
+  canvasWidth,
 
 } = canvasSlice.actions;
 export const canvasReducer = canvasSlice.reducer;
