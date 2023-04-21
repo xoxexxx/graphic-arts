@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { MediaAndPhoto } from "./Settings";
+import { MediaAndPhoto } from "./MediaAndPhoto/MediaAndPhoto";
+
 
 export const EditorSettings: React.FC = () => {
 

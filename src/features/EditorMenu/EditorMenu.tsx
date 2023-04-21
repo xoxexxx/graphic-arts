@@ -22,7 +22,7 @@ export const EditorMenu: React.FC = () => {
   };
 
   return (
-    <div className="editor-menu flex flex-col items-center w-24 h-full bg-[#9a77e5]">
+    <div className="editor-menu flex flex-col items-center w-[9vw] h-full bg-[#9a77e5]">
       {tabMenu.map((tab) => (
         <div
           key={tab.id}

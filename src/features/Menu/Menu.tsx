@@ -14,7 +14,7 @@ import { Registration } from "../../features/Registration/Registration";
 import { IPopup } from "../types";
 import { EMenu } from "./EMenu";
 import { twMerge } from "tailwind-merge";
-import { DropSizes } from "./CanvasSize";
+import { DropSizes } from "./PopupSize";
 
 import { dropCanvasSettingSize as dropCanvasSettingSizeFunc } from "../../services/reducers/dropReducer";
 
@@ -30,6 +30,7 @@ export const Menu: React.FC = () => {
   const { isProfile } = useSelector((state) => state.check);
   //@ts-ignore
   const { dropMenu, dropProfileMenu, dropCanvasSettingSize } = useSelector(
+    //@ts-ignore
     (state) => state.drop
   );
 
@@ -66,9 +67,9 @@ export const Menu: React.FC = () => {
   }, [location]);
 
   const handleEditor = () => {
-    dispatch(dropCanvasSettingSizeFunc(false));
+    dispatch(dropCanvasSettingSizeFunc(true));
 
-    return navigate("/editor");
+    // return navigate("/editor");
   };
 
   return (
